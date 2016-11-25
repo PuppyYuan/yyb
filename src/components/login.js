@@ -1,19 +1,76 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  TouchableHighlight,
-  TextInput
-} from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput} from 'react-native';
+import { connect } from 'react-redux';
+
+import { login, logout } from '../actions/user';
+
+import ModalBox from 'react-native-modalbox';
+import Spinner from 'react-native-spinkit';
+
+import commonStyle from '../styles/common';
 
 let window = Dimensions.get('window');
 let width = window.width;
 let height = window.height;
 
-export default class Login extends Component {
+class Login extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+
+        }
+    }
+
+    shouldComponentUpdate = (nextProps, nextState) => {
+
+        if(nextProps.is_logged_in != this.props.is_logged_in && nextProps.is_logged_in){
+            this.refs.modal.close();
+            this.toLine();
+            return false;
+        }
+
+        if(nextProps.status === 'doing'){
+            this.refs.modal.open();
+            return false;
+        }
+
+        if(nextProps.status === 'error' || nextProps.status === 'done'){
+            this.refs.modal.close();
+            return false;
+        }
+
+        return true;
+    }
+
+    toLine = () => {
+        const { router } = this.props;
+        router.toLine();
+    }
+
+    handleLogin = () => {
+        if(!this.state.username || !this.state.password){
+            alert('用户名或者密码不能为空!');
+            return;
+        }
+
+        let user = {
+            'name': this.state.username,
+            'password': this.state.password
+        }
+        
+        this.props.dispatch(login(user));
+    }
+
+    onChangeName = text => {
+        this.setState({'username': text });
+        // this.props.dispatch(logout());
+    }
+
+    onChangePwd = text => {
+        this.setState({'password': text});
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -29,7 +86,9 @@ export default class Login extends Component {
                         underlineColorAndroid="#fff" 
                         multiline={false}
                         maxLength={20}
-                        style={styles.login_input_text}/>
+                        style={styles.login_input_text}
+                        onChangeText = { this.onChangeName.bind(this) }
+                        />
                 </View>
 
                 <View style={styles.login_input}>
@@ -43,10 +102,12 @@ export default class Login extends Component {
                         multiline={false}
                         maxLength={20}
                         secureTextEntry={true}
-                        style={styles.login_input_text}/>
+                        style={styles.login_input_text}
+                        onChangeText = { this.onChangePwd.bind(this) }
+                        />
                 </View>
 
-                <TouchableHighlight style={styles.login_btn} onPress={()=> {alert('我在登录');}}>
+                <TouchableHighlight style={styles.login_btn} onPress= { this.handleLogin.bind(this) }>
                     <Text style={styles.login_btn_text}>登&nbsp;&nbsp;&nbsp;录</Text>
                 </TouchableHighlight>
 
@@ -65,6 +126,17 @@ export default class Login extends Component {
 
                     <Text style={styles.login_bottom_text}>注册</Text>
                 </View>
+
+                <ModalBox style={[commonStyle.modal,commonStyle.justAlign]} 
+                    ref={"modal"} backdropPressToClose={false} 
+                     animationDuration={10}
+                     backdrop={true}
+                     backdropOpacity={0}
+                     >
+                <Spinner style={commonStyle.spinner} 
+                    isVisible={true} 
+                    size={50} type="Arc" color="#FFFFFF"/>
+            </ModalBox>
             </View>
         );
     }
@@ -148,3 +220,14 @@ const styles = StyleSheet.create({
       height: 20
   }
 });
+
+function select(store){
+    return {
+        is_logged_in: store.user.is_logged_in,
+        user: store.user.user,
+        status: store.user.status
+    }
+}
+
+
+export default connect(select)(Login);

@@ -4,8 +4,8 @@ import React, {Navigator} from 'react-native';
 
 // Pages
 
-import LoginPage from '../pages/login';
-import MainPage from '../pages/main';
+import LoginPage from '../components/login';
+import Line from '../components/line';
 
 
 // Config
@@ -40,15 +40,13 @@ class Router {
         })
     }
 
-    toMain(props){
+    toLine(props){
         this.push(props, {
-            page: MainPage,
-            name: 'main-page',
+            page: Line,
+            name: 'line',
             sceneConfig: customFloatFromRight
         })
     }
-
-    
 
     replaceWithHome() {
         this.navigator.popToTop()
