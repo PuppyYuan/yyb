@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  TouchableHighlight,
-  TextInput,
-  ListView
-} from 'react-native';
+import {StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput, ListView } from 'react-native';
+
+import { connect } from 'react-redux';
+
+import { logout } from '../actions/user'; 
 
 let window = Dimensions.get('window');
 let width = window.width;
 let height = window.height;
 
-export default class Line extends Component {
+class Line extends Component {
 
     constructor(props){
         super(props);
@@ -24,10 +19,34 @@ export default class Line extends Component {
         };
     }
 
+    shouldComponentUpdate = (nextProps, nextState) => {
+
+        if(nextProps.is_logged_in != this.props.is_logged_in && !nextProps.is_logged_in){
+            this.resetToLogin();
+            return false;
+        }
+
+        return true;
+    }
+
+    handleLogout = () => {
+        this.props.dispatch(logout());
+    }
+
+    resetToLogin = () => {
+        const { router } = this.props;
+        router.resetToLogin();
+    }
+
     render() {
         return (
             <View style={styles.container} >
-                <Text style={styles.navi}>全部类型</Text>
+                <View style={styles.navi}>
+                    <TouchableHighlight style={styles.navi_btn} onPress= { this.handleLogout.bind(this) }>
+                        <Text style={styles.navi_btn_txt}>退出</Text>
+                    </TouchableHighlight>
+                    <Text style={styles.navi_txt} >全部类型</Text>
+                </View>
                 <ListView
                     dataSource={this.state.dataSource}
                     renderRow={this._renderRow}
@@ -57,6 +76,10 @@ export default class Line extends Component {
         dataBlob.push({url: require('../images/line/5.jpg'), title: '尼亚加拉大瀑布', desc: '#冒险'});
         return dataBlob;
     }
+
+    componentWillMount = () => {
+        
+    }
 }
 
 const styles = StyleSheet.create({
@@ -67,9 +90,22 @@ const styles = StyleSheet.create({
     },
     navi: {
         width: width,
-        height: 40,
-        color: '#fff',
+        height: 40, 
         backgroundColor: '#45a99e',
+        flexDirection: 'row'
+    },
+    navi_txt: {
+        width: width * 0.8,
+        color: '#fff',
+        lineHeight: 30,
+        textAlign: 'center'
+    },
+    navi_btn: {
+        width: width * 0.1,
+        height: 40,
+    },
+    navi_btn_txt: {
+        color: '#fff',
         lineHeight: 30,
         textAlign: 'center'
     },
@@ -104,3 +140,13 @@ const styles = StyleSheet.create({
         fontSize: 14
     }
 });
+
+function select(store){
+    return {
+        is_logged_in: store.user.is_logged_in,
+        user: store.user.user,
+        status: store.user.status
+    }
+}
+
+export default connect(select)(Line);

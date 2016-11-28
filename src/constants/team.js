@@ -1,0 +1,11 @@
+'use strict'
+
+export const TEAM_LIST_DOING = 'TEAM_LIST_DOING';
+export const TEAM_LIST_SUC = 'LINT_LIST_SUC';
+export const TEAM_LIST_FAIL = 'TEAM_LIST_FAIL';
+export const TEAM_LIST_ERROR = 'TEAM_LIST_ERROR';
+
+export const TEAM_DETAIL_DOING = 'TEAM_DETAIL_DOING';
+export const TEAM_DETAIL_SUC = 'TEAM_DETAIL_SUC';
+export const TEAM_DETAIL_FAIL = 'TEAM_DETAIL_FAIL';
+export const TEAM_DETAIL_ERROR = 'TEAM_DETAIL_ERROR';

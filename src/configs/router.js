@@ -4,7 +4,7 @@ import React, {Navigator} from 'react-native';
 
 // Pages
 
-import LoginPage from '../components/login';
+import Login from '../components/login';
 import Line from '../components/line';
 
 
@@ -34,8 +34,8 @@ class Router {
 
     toLogin(props){
         this.push(props, {
-            page: LoginPage,
-            name: 'login-page',
+            page: Login,
+            name: 'login',
             sceneConfig: customFloatFromRight
         })
     }
@@ -54,8 +54,8 @@ class Router {
 
     resetToLogin(){
         this.navigator.resetTo({
-            name: 'login-page',
-            page: LoginPage,
+            name: 'login',
+            page: Login,
             //sceneConfig: customFloatFromRight,
         })
     }

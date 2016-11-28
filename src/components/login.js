@@ -133,10 +133,11 @@ class Login extends Component {
                      backdrop={true}
                      backdropOpacity={0}
                      >
-                <Spinner style={commonStyle.spinner} 
-                    isVisible={true} 
-                    size={50} type="Arc" color="#FFFFFF"/>
-            </ModalBox>
+                    <Spinner style={commonStyle.spinner} 
+                        isVisible={true} 
+                        size={50} type="Wave" color="#FFFFFF"/>
+                    <Text style={{textAlign: 'center', color: '#fff', marginTop: 10}}>登录中…</Text>
+                </ModalBox>
             </View>
         );
     }

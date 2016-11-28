@@ -47,7 +47,8 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         height: 100,
         width: 100,
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        borderRadius: 20,
+        backgroundColor: 'rgba(0, 0, 0, 0.6)',
     },
     viewList: {
         padding: 10,
