@@ -15,12 +15,8 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const mapStateToProps = (store) => {
-  return {
-    is_logged_in: store.user.is_logged_in,
-    user: store.user.user,
-    status: store.user.status
-  }
+const mapStateToProps = (state) => {
+  return state.user;
 }
 
 const Line = connect(mapStateToProps, mapDispatchToProps)(LinePage)
