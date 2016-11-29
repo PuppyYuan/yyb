@@ -4,8 +4,8 @@ import React, {Navigator} from 'react-native';
 
 // Pages
 
-import Login from '../components/login';
-import Line from '../components/line';
+import Login from '../containers/login';
+import Line from '../containers/line';
 
 
 // Config

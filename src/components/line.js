@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import {StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput, ListView } from 'react-native';
 
-import { connect } from 'react-redux';
+import styles from '../styles/line';
 
-import { logout } from '../actions/user'; 
-
-let window = Dimensions.get('window');
-let width = window.width;
-let height = window.height;
-
-class Line extends Component {
+export default class Line extends Component {
 
     constructor(props){
         super(props);
@@ -29,10 +23,6 @@ class Line extends Component {
         return true;
     }
 
-    handleLogout = () => {
-        this.props.dispatch(logout());
-    }
-
     resetToLogin = () => {
         const { router } = this.props;
         router.resetToLogin();
@@ -42,7 +32,7 @@ class Line extends Component {
         return (
             <View style={styles.container} >
                 <View style={styles.navi}>
-                    <TouchableHighlight style={styles.navi_btn} onPress= { this.handleLogout.bind(this) }>
+                    <TouchableHighlight style={styles.navi_btn} onPress= { this.props.handleLogout.bind(this) }>
                         <Text style={styles.navi_btn_txt}>退出</Text>
                     </TouchableHighlight>
                     <Text style={styles.navi_txt} >全部类型</Text>
@@ -81,72 +71,3 @@ class Line extends Component {
         
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: '#fff',
-    },
-    navi: {
-        width: width,
-        height: 40, 
-        backgroundColor: '#45a99e',
-        flexDirection: 'row'
-    },
-    navi_txt: {
-        width: width * 0.8,
-        color: '#fff',
-        lineHeight: 30,
-        textAlign: 'center'
-    },
-    navi_btn: {
-        width: width * 0.1,
-        height: 40,
-    },
-    navi_btn_txt: {
-        color: '#fff',
-        lineHeight: 30,
-        textAlign: 'center'
-    },
-    list_item: {
-        alignItems: 'center',
-        width: width,
-        height: width * 0.5,
-        marginTop: width * 0.01
-    },
-    list_item_img: {
-        width: width * 0.98, 
-        height: width * 0.5
-    },
-    list_item_ttl: {
-        position: 'absolute',
-        bottom: 30,
-        left: 0,
-        height: 30,
-        lineHeight: 30,
-        paddingLeft: 15,
-        color: '#dedede',
-        fontSize: 16
-    },
-    list_item_desc: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        height: 30,
-        lineHeight: 20,
-        paddingLeft: 15,
-        color: '#dedede',
-        fontSize: 14
-    }
-});
-
-function select(store){
-    return {
-        is_logged_in: store.user.is_logged_in,
-        user: store.user.user,
-        status: store.user.status
-    }
-}
-
-export default connect(select)(Line);

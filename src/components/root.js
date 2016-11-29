@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import Router from '../configs/router';
 import { login } from '../actions/user';
 
-import Login from '../components/login';
-import Line from '../components/line';
+import Login from '../containers/login';
+import Line from '../containers/line';
 
 let initialRoute = {
     name: 'login',
