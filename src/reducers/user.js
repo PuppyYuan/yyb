@@ -2,13 +2,13 @@
 
 import * as USER_ACTIONS from '../constants/user';
 
-const initilaState = {
+const initialState = {
     is_logged_in : false,
     user: {}, 
     status: null
 }
 
-export default function user(state=initilaState, action){
+export default function user(state=initialState, action){
     switch (action.type) {
         case USER_ACTIONS.LOGGED_DOING:
             return {

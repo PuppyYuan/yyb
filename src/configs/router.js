@@ -1,18 +1,12 @@
 'use strict';
 import React, {Navigator} from 'react-native';
 
-
-// Pages
-
 import Login from '../containers/login';
 import Line from '../containers/line';
 
-
-// Config
-const sceneConfig = require('./sceneConfig')
+import * as sceneConfig from './sceneConfig';
 
 const customFloatFromRight = sceneConfig.customFloatFromRight;
-
 
 class Router {
     constructor(navigator) {
@@ -21,7 +15,7 @@ class Router {
 
     push(props, route) {
         let routesList = this.navigator.getCurrentRoutes()
-        let nextIndex = routesList[routesList.length - 1].index + 1
+        let nextIndex = routesList[routesList.length - 1].index ? routesList[routesList.length - 1].index + 1 : 1
         route.props = props
         route.index = nextIndex
         this.navigator.push(route)
@@ -34,7 +28,7 @@ class Router {
 
     toLogin(props){
         this.push(props, {
-            page: Login,
+            component: Login,
             name: 'login',
             sceneConfig: customFloatFromRight
         })
@@ -42,7 +36,7 @@ class Router {
 
     toLine(props){
         this.push(props, {
-            page: Line,
+            component: Line,
             name: 'line',
             sceneConfig: customFloatFromRight
         })
@@ -55,12 +49,9 @@ class Router {
     resetToLogin(){
         this.navigator.resetTo({
             name: 'login',
-            page: Login,
-            //sceneConfig: customFloatFromRight,
+            component: Login
         })
     }
-
-
 }
 
 module.exports = Router

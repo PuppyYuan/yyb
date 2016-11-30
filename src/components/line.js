@@ -15,7 +15,7 @@ export default class Line extends Component {
 
     shouldComponentUpdate = (nextProps, nextState) => {
 
-        if(nextProps.is_logged_in != this.props.is_logged_in && !nextProps.is_logged_in){
+        if(nextProps.user.is_logged_in != this.props.user.is_logged_in && !nextProps.user.is_logged_in){
             this.resetToLogin();
             return false;
         }
@@ -67,7 +67,7 @@ export default class Line extends Component {
         return dataBlob;
     }
 
-    componentWillMount = () => {
-        
+    componentDidMount = () => {
+        this.props.lineList();
     }
 }

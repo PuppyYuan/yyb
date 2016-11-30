@@ -7,61 +7,48 @@ import { login } from '../actions/user';
 import Login from '../containers/login';
 import Line from '../containers/line';
 
-let initialRoute = {
-    name: 'login',
-    page: Login
-}
-
 class Root extends Component {
     constructor(props){
-        super(props);
-        if(props.is_logged_in){
-            initialRoute = {
-                name: 'line',
-                page: Line
-            }
-        }
+        super(props);       
     }
 
-    renderScene({page, name, id, index, props}, navigator) {
-        this.router = this.route || new Router(navigator);
-
-        if(page){
-            return React.createElement(page, {
-                ...props,
-                ref: view => this[index] = view,
-                router: this.router,
-                name, 
-                route: {
-                    name, id, index
-                }
-            })
-        }
+    renderScene(route, navigator) {
+        
+        return <route.component 
+                    router= { this.router || new Router(navigator)} 
+                    {...route.passProps}
+                />
     }
 
-    configureScene(route){
+    initialRoute = () => {
+
+        if(this.props.is_logged_in){
+            return { name: 'line', component: Line, index: 0 }
+        }
+        return { name: 'login', component: Login, index: 0 }
+    }
+
+    configureScene = route => {
         if(route.sceneConfig){
             return route.sceneConfig;
         }
         return Navigator.SceneConfigs.FloatFromRight;
     }
 
-    render(){
+    render() {
         return (
             <Navigator 
                 ref = { view => this.navigator = view }
-                initialRoute = { initialRoute }
-                configureScene = { this.configureScene.bind(this) }
-                renderScene = { this.renderScene.bind(this) }    
+                initialRoute = { this.initialRoute() }
+                configureScene = { this.configureScene }
+                renderScene = { this.renderScene }    
             />
         )
     }
 }
 
-function select(store){
-    return {
-        is_logged_in: store.user.is_logged_in
-    }
+const mapStateToProps = (state) => {  
+  return { is_logged_in: state.user.is_logged_in }
 }
 
-export default connect(select)(Root);
+export default connect(mapStateToProps)(Root);
