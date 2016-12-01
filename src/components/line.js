@@ -29,6 +29,9 @@ export default class Line extends Component {
     }
 
     render() {
+        if(this.props.line.status === 'done'){
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        var dataSource = ds.cloneWithRows(this.props.line.data)
         return (
             <View style={styles.container} >
                 <View style={styles.navi}>
@@ -38,11 +41,14 @@ export default class Line extends Component {
                     <Text style={styles.navi_txt} >全部类型</Text>
                 </View>
                 <ListView
-                    dataSource={this.state.dataSource}
+                    dataSource={dataSource}
                     renderRow={this._renderRow}
                 />
             </View>
         );
+        }else{
+            return <View><Text>加载中…</Text></View>
+        }
     }
 
     _renderRow = (rowData, sectionID, rowID) => {
