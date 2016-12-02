@@ -18,7 +18,7 @@ export default class LoginPage extends Component {
 
         if(nextProps.is_logged_in != this.props.is_logged_in && nextProps.is_logged_in){
             this.refs.modal.close();
-            this.toLine();
+            this.toMain();
             return false;
         }
 
@@ -38,6 +38,11 @@ export default class LoginPage extends Component {
     toLine = () => {
         const { router } = this.props;
         router.toLine();
+    }
+
+    toMain = () => {
+        const { router } = this.props;
+        router.toMain();
     }
 
     handleLogin = () => {

@@ -3,6 +3,7 @@ import React, {Navigator} from 'react-native';
 
 import Login from '../containers/login';
 import Line from '../containers/line';
+import Main from '../containers/main';
 
 import * as sceneConfig from './sceneConfig';
 
@@ -38,6 +39,14 @@ class Router {
         this.push(props, {
             component: Line,
             name: 'line',
+            sceneConfig: customFloatFromRight
+        })
+    }
+
+    toMain = props => {
+        this.push(props, {
+            component: Main,
+            name: 'main',
             sceneConfig: customFloatFromRight
         })
     }

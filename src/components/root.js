@@ -5,6 +5,7 @@ import Router from '../configs/router';
 import { login } from '../actions/user';
 
 import Login from '../containers/login';
+import Main from '../containers/main';
 import Line from '../containers/line';
 
 class Root extends Component {
@@ -23,7 +24,7 @@ class Root extends Component {
     initialRoute = () => {
 
         if(this.props.is_logged_in){
-            return { name: 'line', component: Line, index: 0 }
+            return { name: 'main', component: Main, index: 0 }
         }
         return { name: 'login', component: Login, index: 0 }
     }
