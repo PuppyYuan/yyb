@@ -6,7 +6,10 @@ import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInpu
 import TabNavigator from 'react-native-tab-navigator';
 
 import mainStyles from '../styles/main';
-import Line from '../containers/line'
+
+import Home from '../components/home';
+import Line from '../containers/line';
+import Mine from '../components/mine';
 
 export default class MainPage extends Component {
     constructor(props){
@@ -28,7 +31,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'home'}
                     title={this.state.tabTitle[0]}
                     onPress={() => this.setState({ selectedTab: 'home' })}>
-                    {<Line {...this.props} />}
+                    <Home/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
@@ -36,7 +39,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'join'}
                     title={this.state.tabTitle[1]}
                     onPress={() => this.setState({ selectedTab: 'join' })}>
-                    <Text>I am profile</Text>
+                    <Text>线路召集</Text>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
@@ -44,7 +47,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'line'}
                     title={this.state.tabTitle[2]}
                     onPress={() => this.setState({ selectedTab: 'line' })}>
-                    <Text>I am profile</Text>
+                    <Line {...this.props} />
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
@@ -52,7 +55,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'chat'}
                     title={this.state.tabTitle[3]}
                     onPress={() => this.setState({ selectedTab: 'chat' })}>
-                    <Text>I am profile</Text>
+                    <Text>聊天</Text>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
@@ -60,7 +63,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'mine'}
                     title={this.state.tabTitle[4]}
                     onPress={() => this.setState({ selectedTab: 'mine' })}>
-                    <Text>I am profile</Text>
+                    <Mine/>
                 </TabNavigator.Item>
             </TabNavigator>
         )

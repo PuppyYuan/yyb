@@ -10,22 +10,10 @@ let store = configureStore();
 import Root from './root';
 
 export default class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            is_loading: true,
-            store: configureStore( () => {this.setState({is_loading: false})} )
-        }
-    }
 
     render () {
-        if(this.state.is_loading){
-            console.log('loading app');
-            return null;
-        }
-
         return (
-            <Provider store={ this.state.store }>
+            <Provider store={ configureStore() }>
                 <Root/>
             </Provider>
         )
