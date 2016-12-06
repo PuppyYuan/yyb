@@ -23,10 +23,11 @@ class Root extends Component {
 
     initialRoute = () => {
 
-        if(this.props.is_logged_in){
-            return { name: 'main', component: Main, index: 0 }
+        if(!this.props.is_logged_in){
+            return { name: 'login', component: Login, index: 0 }
+            
         }
-        return { name: 'login', component: Login, index: 0 }
+        return { name: 'main', component: Main, index: 0 }
     }
 
     configureScene = route => {
