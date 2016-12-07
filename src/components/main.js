@@ -10,12 +10,13 @@ import mainStyles from '../styles/main';
 import Home from '../components/home';
 import Line from '../containers/line';
 import Mine from '../components/mine';
+import Team from '../components/team';
 
 export default class MainPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: 'home',
+            selectedTab: 'mine',
             tabTitle: ['首页', '线路召集', '线路', '聊天', '我']
         }
     }
@@ -36,10 +37,10 @@ export default class MainPage extends Component {
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
                     selectedTitleStyle={mainStyles.tabBarSelectedTitleStyle}
-                    selected={this.state.selectedTab === 'join'}
+                    selected={this.state.selectedTab === 'team'}
                     title={this.state.tabTitle[1]}
-                    onPress={() => this.setState({ selectedTab: 'join' })}>
-                    <Text>线路召集</Text>
+                    onPress={() => this.setState({ selectedTab: 'team' })}>
+                    <Team/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}

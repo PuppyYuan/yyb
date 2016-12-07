@@ -2,7 +2,7 @@
 // 首页
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, 
+import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TouchableOpacity,
 TextInput, ScrollView, Picker} from 'react-native';
 
 import ViewPager from 'react-native-viewpager';
@@ -61,7 +61,13 @@ export default class Home extends Component {
                             <Text style={styles.homeFormRowLeftTxt}>线路：</Text>
                         </View>
                         <View style={styles.homeFormRowMid}></View>
-                        <View style={styles.homeFormRowRight}></View>
+                        <TouchableOpacity style={styles.homeFormRowRight} >
+                            <Image 
+                                source={require('../images/activity_map.png')} 
+                                style={styles.homeFormRowRightImg}
+                            />
+                            <Text style={styles.homeFormRowRightTxt}>选择线路</Text>
+                        </TouchableOpacity>
                     </View>
 
                     <View style={styles.homeFormRow}>
@@ -77,9 +83,7 @@ export default class Home extends Component {
                                 <Picker.Item label="否" value="2" />
                             </Picker>
                         </View>
-                        <View style={styles.homeFormRowRight}>
-                            
-                        </View>
+                        <View style={styles.homeFormRowRight}></View>
                     </View>
 
                     <View style={styles.homeFormRow}>
@@ -96,9 +100,7 @@ export default class Home extends Component {
                                 <Picker.Item label="大于5人" value="3" />
                             </Picker>
                         </View>
-                        <View style={styles.homeFormRowRight}>
-                            
-                        </View>
+                        <View style={styles.homeFormRowRight}></View>
                     </View>
 
                     <View style={styles.homeFormRow}>
@@ -114,16 +116,26 @@ export default class Home extends Component {
                                 <Picker.Item label="否" value="2" />
                             </Picker>
                         </View>
-                        <View style={styles.homeFormRowRight}>
-                            
-                        </View>
+                        <TouchableOpacity style={styles.homeFormRowRight} >
+                            <Image 
+                                source={require('../images/activity_map.png')} 
+                                style={styles.homeFormRowRightImg}
+                            />
+                            <Text style={styles.homeFormRowRightTxt}>选择包车</Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.homeFormRow}>
                         <View style={styles.homeFormRowLeft}>
                             <Text style={styles.homeFormRowLeftTxt}>集合地点：</Text>
                         </View>
                         <View style={styles.homeFormRowMid}></View>
-                        <View style={styles.homeFormRowRight}></View>
+                        <TouchableOpacity style={styles.homeFormRowRight} >
+                            <Image 
+                                source={require('../images/activity_map.png')} 
+                                style={styles.homeFormRowRightImg}
+                            />
+                            <Text style={styles.homeFormRowRightTxt}>选择</Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.homeFormRow}>
                         <View style={styles.homeFormRowLeft}>

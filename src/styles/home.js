@@ -10,17 +10,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        flexDirection: 'column',
     },
     mineHeader: {
         height: 160,
         width: width,
-        backgroundColor: '#45aa9e'
+        backgroundColor: '#45aa9e',
+        flexDirection: 'row',
     },
     viewpager: {
         width: width,
         height: 160,
-        marginTop: 10
     },
     viewpage: {
         width: width,
@@ -50,7 +49,17 @@ const styles = StyleSheet.create({
     },
     homeFormRowRight: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    homeFormRowRightImg: {
+        width: 15,
+        height:18
+    },
+    homeFormRowRightTxt: {
+        fontSize: 10,
+        marginTop: 4,
+        color: '#498db9'
     },
     homeFormBtn: {
         width: width - 20,
