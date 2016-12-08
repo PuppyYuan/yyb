@@ -8,15 +8,18 @@ import TabNavigator from 'react-native-tab-navigator';
 import mainStyles from '../styles/main';
 
 import Home from '../components/home';
-import Line from '../containers/line';
-import Mine from '../components/mine';
 import Team from '../components/team';
+import Line from '../containers/line';
+import Chat from '../components/chat';
+import Mine from '../components/mine';
+
+import ChatDetail from '../components/chatDetail';
 
 export default class MainPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: 'mine',
+            selectedTab: 'chat',
             tabTitle: ['首页', '线路召集', '线路', '聊天', '我']
         }
     }
@@ -56,7 +59,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'chat'}
                     title={this.state.tabTitle[3]}
                     onPress={() => this.setState({ selectedTab: 'chat' })}>
-                    <Text>聊天</Text>
+                    <ChatDetail/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}

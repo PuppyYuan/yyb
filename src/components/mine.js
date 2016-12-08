@@ -4,7 +4,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput} from 'react-native';
 
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+
 import styles from '../styles/mine';
+
+import MineActivity from './mineActivity';
+import MineInterest from './mineInterest';
+import MineFocus from './mineFocus';
 
 export default class Mine extends Component {
     render () {
@@ -34,6 +40,20 @@ export default class Mine extends Component {
                             <Text style={styles.mineHeaderRightBotBtn}>个人信息</Text>
                         </View>
                     </View>
+                </View>
+
+                <View style={styles.mineBody}>
+                    <ScrollableTabView
+                        tabBarTextStyle={{color: '#999'}}
+                        tabBarActiveTextColor={'#000'}
+                        tabBarUnderlineStyle={{height: 2, backgroundColor: '#76c2b9'}}
+                        tabBarBackgroundColor={'#f6f6f6'}
+                        >
+                        
+                        <MineActivity tabLabel="活动" />
+                        <MineInterest tabLabel="收藏" />
+                        <MineFocus tabLabel="关注"/>
+                    </ScrollableTabView>
                 </View>
             </View>
         );

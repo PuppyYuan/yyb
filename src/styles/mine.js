@@ -9,7 +9,6 @@ let height = window.height;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
         backgroundColor: '#fff',
     },
     mineHeader: {
@@ -83,6 +82,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 12,
         marginRight: 10,
+    },
+    mineBody: {
+        flex: 1,
     }
     
 });
