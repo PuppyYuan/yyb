@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     mineHeader: {
-        height: 150,
+        height: 120,
         width: width,
         backgroundColor: '#45aa9e',
         flexDirection: 'row',
@@ -33,10 +33,58 @@ const styles = StyleSheet.create({
     mineHeaderMid: {
         flex: 3,
     },
+    mineHeaderMidTop: {
+        flex: 1,
+        justifyContent: 'flex-end'
+    },
+    mineHeaderMidTopTxt: {
+        color: '#ededed',
+        fontSize: 16
+    },
+    mineHeaderMidBot: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    mineHeaderMidBotNum: {
+        color: '#ededed',
+        fontSize: 14,
+    },
+    mineHeaderMidBotTxt: {
+        marginLeft: 6,
+        color: '#ededed',
+        fontSize: 10,
+    },
     mineHeaderRight: {
         flex: 1,
-        backgroundColor: 'purple'
+    },
+    mineHeaderRightTop: {
+        flex: 1,
+        alignItems: 'flex-end'
+    },
+    mineHeaderRightTopImg: {
+        width: 20,
+        height: 20,
+        marginRight: 10,
+        marginTop: 10,
+    },
+    mineHeaderRightMid: {
+        flex: 2,
+    },
+    mineHeaderRightBot: {
+        flex: 1,
+        justifyContent: 'flex-start'
+    },
+    mineHeaderRightBotBtn: {
+        color: '#ededed',
+        borderColor: '#ededed',
+        borderWidth: 1,
+        borderRadius: 8,
+        textAlign: 'center',
+        fontSize: 12,
+        marginRight: 10,
     }
+    
 });
 
 module.exports = styles;
