@@ -14,6 +14,7 @@ import Chat from '../components/chat';
 import Mine from '../components/mine';
 
 import ChatDetail from '../components/chatDetail';
+import ChatContent from '../components/chatContent';
 
 export default class MainPage extends Component {
     constructor(props){
@@ -59,7 +60,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'chat'}
                     title={this.state.tabTitle[3]}
                     onPress={() => this.setState({ selectedTab: 'chat' })}>
-                    <ChatDetail/>
+                    <ChatContent/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}

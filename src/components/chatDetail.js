@@ -5,6 +5,8 @@ import { View, Text, TextInput, ListView, TouchableOpacity, Image } from 'react-
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 
+import ChatContent from './chatContent';
+
 import styles from '../styles/chat';
 
 
@@ -49,7 +51,7 @@ export default class ChatDetail extends Component {
                         tabBarBackgroundColor={'#f6f6f6'}
                         >
                         
-                        <View tabLabel="聊天" />
+                        <ChatContent tabLabel="聊天" />
                         <View tabLabel="成员" />
                     
                     </ScrollableTabView>
