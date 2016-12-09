@@ -22,6 +22,13 @@ class Router {
         this.navigator.push(route)
     }
 
+    replace(props, route) {
+        let routesList = this.navigator.getCurrentRoutes()
+        let nextIndex = routesList[routesList.length - 1].index
+        route.props = props
+        route.index = nextIndex
+        this.navigator.replace(route)
+    }
 
     pop() {
         this.navigator.pop()
@@ -44,7 +51,7 @@ class Router {
     }
 
     toMain = props => {
-        this.push(props, {
+        this.replace(props, {
             component: Main,
             name: 'main',
             sceneConfig: customFloatFromRight

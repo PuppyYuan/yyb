@@ -16,11 +16,13 @@ import Mine from '../components/mine';
 import ChatDetail from '../components/chatDetail';
 import ChatContent from '../components/chatContent';
 
+import BaiduMap from '../components/baiduMap';
+
 export default class MainPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: 'chat',
+            selectedTab: 'home',
             tabTitle: ['首页', '线路召集', '线路', '聊天', '我']
         }
     }
@@ -60,7 +62,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'chat'}
                     title={this.state.tabTitle[3]}
                     onPress={() => this.setState({ selectedTab: 'chat' })}>
-                    <ChatContent/>
+                    <BaiduMap/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
