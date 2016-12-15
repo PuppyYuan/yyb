@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yyb"
+    package="com.yyb.yyb"
     android:versionCode="1"
     android:versionName="1.0">
 	
@@ -31,7 +31,7 @@
       android:icon="@mipmap/ic_launcher"
       android:theme="@style/AppTheme">
 	  
-	  <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="uDRdqQMGQeoPGn5CwMmIYicdUIVv1YST"/>
+	  <meta-data android:name="com.baidu.lbsapi.API_KEY" android:value="SbupHKhzMjxX10SLGZLTfFSjaBjNLqDt"/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

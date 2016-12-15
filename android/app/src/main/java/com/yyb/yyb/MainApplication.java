@@ -1,4 +1,4 @@
-package com.yyb;
+package com.yyb.yyb;
 
 import android.app.Application;
 import android.util.Log;

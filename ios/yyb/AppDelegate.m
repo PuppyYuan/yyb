@@ -11,6 +11,7 @@
 
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
+#import "RCTBaiduMapViewManager.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,8 @@
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
+  [RCTBaiduMapViewManager initSDK:@"EBhmuMPlrkm28DOdBrX0GZDduqPBTWRM"];
+  
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"yyb"
                                                initialProperties:nil

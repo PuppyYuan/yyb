@@ -1,4 +1,4 @@
-package com.yyb;
+package com.yyb.yyb;
 
 import com.facebook.react.ReactActivity;
 
