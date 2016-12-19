@@ -23,7 +23,7 @@ export default class ChatDetail extends Component {
                 <View style={styles.navi}>
                     <TouchableOpacity>
                         <View style={styles.navi_btn}>
-                            <Text style={styles.navi_btn_txt}>&lt;返回</Text>
+                            <Text style={styles.navi_btn_txt}>返回</Text>
                         </View>
                     </TouchableOpacity>
                     <Text style={styles.navi_txt} >东西冲24号14点出发讨论组</Text>

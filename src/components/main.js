@@ -17,6 +17,9 @@ import ChatDetail from '../components/chatDetail';
 import ChatContent from '../components/chatContent';
 
 import BaiduMap from '../components/baiduMap';
+import Comment from '../components/comment';
+import CommentReply from '../components/commentReply';
+import TeamDetail from '../components/teamDetail';
 
 export default class MainPage extends Component {
     constructor(props){
@@ -38,7 +41,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'home'}
                     title={this.state.tabTitle[0]}
                     onPress={() => this.setState({ selectedTab: 'home' })}>
-                    <Home/>
+                    <TeamDetail/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
@@ -62,7 +65,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'chat'}
                     title={this.state.tabTitle[3]}
                     onPress={() => this.setState({ selectedTab: 'chat' })}>
-                    <BaiduMap/>
+                    <ChatDetail/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}

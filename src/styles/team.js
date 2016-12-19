@@ -101,7 +101,73 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 15
+    },
+    teamDetailListView: {
+        flex: 1,
+    },
+    teamDetailListDesc: {
+        height: 40,
+        backgroundColor: '#f6f8f6',
+    },
+    teamDetailListDescTxt: {
+        lineHeight: 40,
+        paddingLeft: 15,
+        color: '#c1c1c1',
+    },
+    teamDetailList: {
+        flex: 1,
+    },
+    teamDetailListItem: {
+        flex: 1,
+        height: 80,
+        padding: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#efefef',
+        flexDirection: 'row',
+    },
+    teamDetailListItemLeft: {
+        width: 40,
+        height: 60,
+        justifyContent: 'center',
+    },
+    teamDetailListItemLeftImg: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+    },
+    teamDetailListItemMid: {
+        flex: 3,
+        marginLeft: 6,
+    },
+    teamDetailListItemMidTop: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    teamDetailListItemMidTopTxt: {
+        color: '#666',
+    },
+    teamDetailListItemMidBot: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    teamDetailListItemMidBotTxt: {
+        color: '#999',
+    },
+    teamDetailListItemRight: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'flex-end',
+    },
+    teamDetailListItemRightBtn: {
+        color: '#45a99e',
+        borderColor: '#45a99e',
+        borderWidth: 1,
+        borderRadius: 8,
+        textAlign: 'center',
+        padding: 4,
+        width: 60,
     }
+
 });
 
 module.exports = styles;
