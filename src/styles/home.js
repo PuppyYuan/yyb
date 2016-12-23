@@ -45,7 +45,15 @@ const styles = StyleSheet.create({
     },
     homeFormRowMid: {
         flex: 3,
-        justifyContent: 'center'
+        justifyContent: 'center',
+    },
+    homeFormRowMidItem: {
+        fontSize: 14,
+        marginTop: -10,
+        height: 80,
+        textAlign: 'left',
+        borderTopColor: 'white',
+        color: '#666'
     },
     homeFormRowRight: {
         flex: 1,

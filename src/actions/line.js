@@ -6,7 +6,7 @@ export function line_list(){
 
     return (dispatch) => {
         dispatch({'type': LINE_ACTIONS.LINE_LIST_DOING});
-        
+
         let inner_get = fetch('https://www.baidu.com')
         .then((res)=>{
             dispatch({'type': LINE_ACTIONS.LINE_LIST_SUC, user: {}})

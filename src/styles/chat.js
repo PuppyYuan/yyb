@@ -38,7 +38,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     searchViewIpt: {
-        width: width,
+        flex: 1,
+        paddingLeft: 10,
+        fontSize: 14,
         backgroundColor: 'white',
         color: '#666'
     },

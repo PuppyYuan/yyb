@@ -7,7 +7,7 @@ import TabNavigator from 'react-native-tab-navigator';
 
 import mainStyles from '../styles/main';
 
-import Home from '../components/home';
+import Home from './home';
 import Team from '../components/team';
 import Line from '../containers/line';
 import Chat from '../components/chat';
@@ -41,7 +41,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'home'}
                     title={this.state.tabTitle[0]}
                     onPress={() => this.setState({ selectedTab: 'home' })}>
-                    <TeamDetail/>
+                    <Home/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
@@ -65,7 +65,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'chat'}
                     title={this.state.tabTitle[3]}
                     onPress={() => this.setState({ selectedTab: 'chat' })}>
-                    <ChatDetail/>
+                    <Chat/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
