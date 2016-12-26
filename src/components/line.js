@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput, ListView } from 'react-native';
+import {StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput, ListView } from 'react-native';
 
+import navStyles from '../styles/nav';
 import styles from '../styles/line';
 
 export default class Line extends Component {
@@ -30,11 +31,13 @@ export default class Line extends Component {
         var dataSource = ds.cloneWithRows(this.props.line.data)
         return (
             <View style={styles.container} >
-                <View style={styles.navi}>
-                    <TouchableHighlight style={styles.navi_btn} onPress= { this.props.handleLogout.bind(this) }>
-                        <Text style={styles.navi_btn_txt}>退出</Text>
-                    </TouchableHighlight>
-                    <Text style={styles.navi_txt} >全部类型</Text>
+
+                <View style={navStyles.navi}>
+                    <TouchableOpacity  style={navStyles.navi_btn} onPress= { this.props.handleLogout.bind(this) }>
+                        <Text style={navStyles.navi_btn_txt}>返回</Text>
+                    </TouchableOpacity>
+                    <Text style={navStyles.navi_txt} >全部类型</Text>
+                    <View style={navStyles.navi_btn} />
                 </View>
                 <ListView
                     dataSource={dataSource}
@@ -49,13 +52,13 @@ export default class Line extends Component {
 
     _renderRow = (rowData, sectionID, rowID) => {
         return (
-            <TouchableHighlight style={styles.list_item}>
+            <TouchableOpacity style={styles.list_item}>
                 <View>
                     <Image source={rowData.url} style={styles.list_item_img}/>
                     <Text style={styles.list_item_ttl}>{rowData.title}</Text>
                     <Text style={styles.list_item_desc}>{rowData.desc}</Text>
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
         )
     }
 

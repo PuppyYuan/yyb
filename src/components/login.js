@@ -1,5 +1,7 @@
+'use strict'
+
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput} from 'react-native';
 
 import ModalBox from 'react-native-modalbox';
 import Spinner from 'react-native-spinkit';
@@ -79,7 +81,7 @@ export default class LoginPage extends Component {
                     <TextInput 
                         placeholder="手机/邮箱/用户名" 
                         placeholderTextColor="#bbb"
-                        underlineColorAndroid="#fff" 
+                        underlineColorAndroid="transparent"
                         multiline={false}
                         maxLength={20}
                         style={styles.login_input_text}
@@ -94,7 +96,7 @@ export default class LoginPage extends Component {
                     <TextInput 
                         placeholder="登录密码" 
                         placeholderTextColor="#bbb" 
-                        underlineColorAndroid="#fff" 
+                        underlineColorAndroid="transparent"
                         multiline={false}
                         maxLength={20}
                         secureTextEntry={true}
@@ -103,9 +105,9 @@ export default class LoginPage extends Component {
                         />
                 </View>
 
-                <TouchableHighlight style={styles.login_btn} onPress= { this.handleLogin.bind(this) }>
+                <TouchableOpacity style={styles.login_btn} onPress= { this.handleLogin.bind(this) }>
                     <Text style={styles.login_btn_text}>登&nbsp;&nbsp;&nbsp;录</Text>
-                </TouchableHighlight>
+                </TouchableOpacity>
 
                 <View style={styles.login_bottom}>
                     <Text style={styles.login_bottom_text}>随便逛逛</Text>

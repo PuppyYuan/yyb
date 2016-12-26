@@ -1,6 +1,6 @@
 'use strict';
 
-import {StyleSheet, Dimensions } from 'react-native';
+import {StyleSheet, Dimensions, Platform } from 'react-native';
 
 let window = Dimensions.get('window');
 let width = window.width;
@@ -12,7 +12,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     mineHeader: {
-        height: 120,
+        ...Platform.select({
+            ios: {
+                height: 140,
+                paddingTop: 20,
+            },
+            android: {
+                height: 120,
+            },
+        }),
         width: width,
         backgroundColor: '#45aa9e',
         flexDirection: 'row',
@@ -68,7 +76,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     mineHeaderRightMid: {
-        flex: 2,
+        flex: 1,
     },
     mineHeaderRightBot: {
         flex: 1,
@@ -78,10 +86,11 @@ const styles = StyleSheet.create({
         color: '#ededed',
         borderColor: '#ededed',
         borderWidth: 1,
-        borderRadius: 8,
+        borderRadius: 10,
         textAlign: 'center',
-        fontSize: 12,
+        fontSize: 10,
         marginRight: 10,
+        padding: 6,
     },
     mineBody: {
         flex: 1,

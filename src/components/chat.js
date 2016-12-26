@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, ListView, TouchableOpacity, Image } from 'react-native';
 
+import navStyles from '../styles/nav';
 import styles from '../styles/chat';
 
 var CHATS = [
@@ -61,11 +62,14 @@ export default class Chat extends Component {
         return (
             <View style={styles.container} >
 
-                <View style={styles.navi}>
-                    <View style={styles.navi_btn} />
-                    <Text style={styles.navi_txt} >聊天(3)</Text>
-                    <View style={styles.navi_btn} />
+                <View style={navStyles.navi}>
+                    <TouchableOpacity  style={navStyles.navi_btn}>
+                        <Text style={navStyles.navi_btn_txt}>返回</Text>
+                    </TouchableOpacity>
+                    <Text style={navStyles.navi_txt} >聊天(3)</Text>
+                    <View style={navStyles.navi_btn} />
                 </View>
+
                 <View style={styles.searchView}>
                     <TextInput 
                         placeholder="搜索" 

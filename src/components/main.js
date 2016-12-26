@@ -10,6 +10,7 @@ import mainStyles from '../styles/main';
 import Home from './home';
 import Team from '../components/team';
 import Line from '../containers/line';
+import LineDetail from '../components/lineDetail';
 import Chat from '../components/chat';
 import Mine from '../components/mine';
 
@@ -18,6 +19,7 @@ import ChatContent from '../components/chatContent';
 
 import BaiduMap from '../components/baiduMap';
 import Comment from '../components/comment';
+import CommentPublish from '../components/commentPublish';
 import CommentReply from '../components/commentReply';
 import TeamDetail from '../components/teamDetail';
 

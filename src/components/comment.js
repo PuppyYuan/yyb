@@ -50,16 +50,15 @@ export default class Comment extends Component {
             <View style={styles.container} >
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity>
-                        <View style={navStyles.navi_btn}>
-                            <Text style={navStyles.navi_btn_txt}>返回</Text>
-                        </View>
+                    <TouchableOpacity style={navStyles.navi_btn} >
+                        <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
                     <Text style={navStyles.navi_txt} >评论(3)</Text>
                     <View style={navStyles.navi_btn} >
                         <Text style={navStyles.navi_btn_txt}>写评论</Text>
                     </View>
                 </View>
+
                 <View style={styles.commentListView}>
                     <ListView style={styles.commentList}
                               dataSource={this.state.dataSourceList}

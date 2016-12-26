@@ -7,6 +7,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 
 import ChatContent from './chatContent';
 
+import navStyles from '../styles/nav';
 import styles from '../styles/chat';
 
 
@@ -20,15 +21,15 @@ export default class ChatDetail extends Component {
     render () {
         return (
             <View style={styles.container} >
-                <View style={styles.navi}>
-                    <TouchableOpacity>
-                        <View style={styles.navi_btn}>
-                            <Text style={styles.navi_btn_txt}>返回</Text>
-                        </View>
+
+                <View style={navStyles.navi}>
+                    <TouchableOpacity  style={navStyles.navi_btn}>
+                        <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
-                    <Text style={styles.navi_txt} >东西冲24号14点出发讨论组</Text>
-                    <View style={styles.navi_btn} />
+                    <Text style={navStyles.navi_txt} >东西冲24号14点出发讨论组</Text>
+                    <View style={navStyles.navi_btn} />
                 </View>
+
                 <View style={styles.chatDesc}>
                     <View style={styles.chatDescRow}>
                         <Text style={styles.chatDescRowLabel}>集合地点：</Text>

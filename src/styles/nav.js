@@ -1,6 +1,6 @@
 'use strict';
 
-import {StyleSheet, Dimensions } from 'react-native';
+import {StyleSheet, Dimensions, Platform } from 'react-native';
 
 let window = Dimensions.get('window');
 let width = window.width;
@@ -9,24 +9,46 @@ let height = window.height;
 const styles = StyleSheet.create({
     navi: {
         width: width,
-        height: 40,
+
         backgroundColor: '#45a99e',
         flexDirection: 'row',
+        ...Platform.select({
+            ios: {
+                height: 60,
+                paddingTop: 20,
+            },
+            android: {
+                height: 40,
+            },
+        }),
     },
     navi_txt: {
-        width: width * 0.7,
+        flex: 14,
         color: '#fff',
-        lineHeight: 30,
+        ...Platform.select({
+            ios: {
+                lineHeight: 40,
+            },
+            android: {
+                lineHeight: 30,
+            },
+        }),
         textAlign: 'center'
     },
     navi_btn: {
-        width: width * 0.15,
-        height: 40,
+        flex: 3,
     },
     navi_btn_txt: {
         color: '#fff',
-        lineHeight: 30,
-        textAlign: 'center'
+        textAlign: 'center',
+        ...Platform.select({
+            ios: {
+                lineHeight: 40,
+            },
+            android: {
+                lineHeight: 30,
+            },
+        }),
     },
 });
 

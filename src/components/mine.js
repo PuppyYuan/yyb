@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput} from 'react-native';
 
-import ScrollableTabView from 'react-native-scrollable-tab-view';
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 
 import styles from '../styles/mine';
 
@@ -48,6 +48,8 @@ export default class Mine extends Component {
                         tabBarActiveTextColor={'#000'}
                         tabBarUnderlineStyle={{height: 2, backgroundColor: '#76c2b9'}}
                         tabBarBackgroundColor={'#f6f6f6'}
+                        renderTabBar={() =>
+                            <DefaultTabBar style={{height: 40}} tabStyle={{paddingBottom: 0}} />}
                         >
                         
                         <MineActivity tabLabel="活动" />

@@ -12,27 +12,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#fff',
     },
-    navi: {
-        width: width,
-        height: 40, 
-        backgroundColor: '#45a99e',
-        flexDirection: 'row'
-    },
-    navi_txt: {
-        width: width * 0.8,
-        color: '#fff',
-        lineHeight: 30,
-        textAlign: 'center'
-    },
-    navi_btn: {
-        width: width * 0.1,
-        height: 40,
-    },
-    navi_btn_txt: {
-        color: '#fff',
-        lineHeight: 30,
-        textAlign: 'center'
-    },
     list_item: {
         alignItems: 'center',
         width: width,
@@ -51,7 +30,8 @@ const styles = StyleSheet.create({
         lineHeight: 30,
         paddingLeft: 15,
         color: '#dedede',
-        fontSize: 16
+        fontSize: 16,
+        backgroundColor: 'transparent',
     },
     list_item_desc: {
         position: 'absolute',
@@ -61,7 +41,8 @@ const styles = StyleSheet.create({
         lineHeight: 20,
         paddingLeft: 15,
         color: '#dedede',
-        fontSize: 14
+        fontSize: 14,
+        backgroundColor: 'transparent',
     }
 });
 

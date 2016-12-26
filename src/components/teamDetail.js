@@ -53,10 +53,8 @@ export default class CommentReply extends Component {
             <View style={styles.container} >
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity>
-                        <View style={navStyles.navi_btn}>
-                            <Text style={navStyles.navi_btn_txt}>返回</Text>
-                        </View>
+                    <TouchableOpacity style={navStyles.navi_btn} >
+                        <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
                     <Text style={navStyles.navi_txt} >已确认</Text>
                     <View style={navStyles.navi_btn} />
