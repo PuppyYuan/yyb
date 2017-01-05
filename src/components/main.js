@@ -23,6 +23,8 @@ import CommentPublish from '../components/commentPublish';
 import CommentReply from '../components/commentReply';
 import TeamDetail from '../components/teamDetail';
 
+import Test from '../components/test';
+
 export default class MainPage extends Component {
     constructor(props){
         super(props);
@@ -43,7 +45,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'home'}
                     title={this.state.tabTitle[0]}
                     onPress={() => this.setState({ selectedTab: 'home' })}>
-                    <Home/>
+                    <ChatDetail/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}

@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
 
     modalContainer: {
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 0,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#fff',
     },
 
     buttonView: {
@@ -136,8 +137,8 @@ class SimplePicker extends Component {
         const itemStyle = this.props.itemStyle || styles.itemStyle;
         return (
             <Modal
-                animationType={'slide'}
-                transparent
+                animationType={'fade'}
+                transparent={true}
                 visible={this.state.modalVisible}
             >
                 <View style={styles.basicContainer}>

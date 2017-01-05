@@ -22,8 +22,12 @@ const styles = StyleSheet.create({
             },
         }),
     },
-    navi_txt: {
+    navi_mid: {
         flex: 14,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    navi_mid_txt: {
         color: '#fff',
         ...Platform.select({
             ios: {
@@ -35,20 +39,19 @@ const styles = StyleSheet.create({
         }),
         textAlign: 'center'
     },
-    navi_btn: {
+    navi_left: {
         flex: 3,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    navi_right: {
+        flex: 3,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     navi_btn_txt: {
         color: '#fff',
         textAlign: 'center',
-        ...Platform.select({
-            ios: {
-                lineHeight: 40,
-            },
-            android: {
-                lineHeight: 30,
-            },
-        }),
     },
 });
 

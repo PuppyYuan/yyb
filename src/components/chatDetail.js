@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, ListView, TouchableOpacity, Image } from 'react-native';
 
-import ScrollableTabView from 'react-native-scrollable-tab-view';
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 
 import ChatContent from './chatContent';
 
@@ -23,11 +23,13 @@ export default class ChatDetail extends Component {
             <View style={styles.container} >
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity  style={navStyles.navi_btn}>
+                    <TouchableOpacity  style={navStyles.navi_left}>
                         <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
-                    <Text style={navStyles.navi_txt} >东西冲24号14点出发讨论组</Text>
-                    <View style={navStyles.navi_btn} />
+                    <View style={navStyles.navi_mid} >
+                        <Text style={navStyles.navi_mid_txt}>东西冲24号14点出发讨论组</Text>
+                    </View>
+                    <View style={navStyles.navi_right} />
                 </View>
 
                 <View style={styles.chatDesc}>
@@ -50,6 +52,8 @@ export default class ChatDetail extends Component {
                         tabBarActiveTextColor={'#000'}
                         tabBarUnderlineStyle={{height: 2, backgroundColor: '#76c2b9'}}
                         tabBarBackgroundColor={'#f6f6f6'}
+                        renderTabBar={() =>
+                            <DefaultTabBar style={{height: 40}} tabStyle={{paddingBottom: 0}} />}
                         >
                         
                         <ChatContent tabLabel="聊天" />

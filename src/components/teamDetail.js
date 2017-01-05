@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, ListView, TouchableOpacity, Image } from 'react-native';
 
+import CustomSwitch from '../widget/CustomSwitch';
+
 import navStyles from '../styles/nav';
 import styles from '../styles/team';
 
@@ -53,11 +55,15 @@ export default class CommentReply extends Component {
             <View style={styles.container} >
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity style={navStyles.navi_btn} >
+                    <TouchableOpacity style={navStyles.navi_left} >
                         <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
-                    <Text style={navStyles.navi_txt} >已确认</Text>
-                    <View style={navStyles.navi_btn} />
+                    <View style={navStyles.navi_mid} >
+                        <CustomSwitch activeText="已确认" inActiveText="未确认" value={true} onValueChange={value=>alert(value)}/>
+                    </View>
+                    <View style={navStyles.navi_right} >
+                        <Text style={navStyles.navi_btn_txt}>返回</Text>
+                    </View>
                 </View>
 
                 <View style={styles.teamDetailListView}>

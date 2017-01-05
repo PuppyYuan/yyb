@@ -28,8 +28,17 @@ const styles = StyleSheet.create({
     teamCondition: {
         width: width,
         height: 40,
+        paddingHorizontal: 15,
         borderBottomWidth: 1,
-        borderBottomColor: '#f3f3f3'
+        borderBottomColor: '#f3f3f3',
+        flexDirection: 'row',
+        backgroundColor: 'transparent',
+    },
+    teamConditionItem: {
+        width: width / 3 - 15,
+        marginRight: 15,
+        height: 40,
+        backgroundColor: 'transparent'
     },
     teamList: {
         paddingTop: 6,

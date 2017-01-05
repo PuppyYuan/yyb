@@ -63,11 +63,11 @@ export default class Chat extends Component {
             <View style={styles.container} >
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity  style={navStyles.navi_btn}>
-                        <Text style={navStyles.navi_btn_txt}>返回</Text>
-                    </TouchableOpacity>
-                    <Text style={navStyles.navi_txt} >聊天(3)</Text>
-                    <View style={navStyles.navi_btn} />
+                    <View style={navStyles.navi_left} />
+                    <View style={navStyles.navi_mid} >
+                        <Text style={navStyles.navi_mid_txt}>聊天(3)</Text>
+                    </View>
+                    <View style={navStyles.navi_right} />
                 </View>
 
                 <View style={styles.searchView}>

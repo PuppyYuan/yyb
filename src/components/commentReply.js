@@ -17,11 +17,13 @@ export default class CommentReply extends Component {
             <View style={styles.container} >
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity style={navStyles.navi_btn} >
+                    <TouchableOpacity style={navStyles.navi_left} >
                         <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
-                    <Text style={navStyles.navi_txt} >回复评论</Text>
-                    <View style={navStyles.navi_btn} >
+                    <View style={navStyles.navi_mid} >
+                        <Text style={navStyles.navi_mid_txt}>回复评论</Text>
+                    </View>
+                    <View style={navStyles.navi_right} >
                         <Text style={navStyles.navi_btn_txt}>发布</Text>
                     </View>
                 </View>
