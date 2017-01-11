@@ -45,7 +45,7 @@ export default class MainPage extends Component {
                     selected={this.state.selectedTab === 'home'}
                     title={this.state.tabTitle[0]}
                     onPress={() => this.setState({ selectedTab: 'home' })}>
-                    <ChatDetail/>
+                    <Home/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}

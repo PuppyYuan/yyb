@@ -13,14 +13,9 @@ const styles = StyleSheet.create({
     },
     tabBarTitleStyle: {
         fontSize: 16,
-        paddingTop: 14,
-        paddingBottom: 14,
-        color: '#b3b3b3',
-        marginTop: 0
+        color: '#cdcdcd',
     },
     tabBarSelectedTitleStyle: {
-        borderTopWidth: 4,
-        borderTopColor: 'white',
         color: '#fff'
     }
 });

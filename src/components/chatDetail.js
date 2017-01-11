@@ -8,7 +8,7 @@ import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-vi
 import ChatContent from './chatContent';
 
 import navStyles from '../styles/nav';
-import styles from '../styles/chat';
+import { styles } from '../styles/chat';
 
 
 export default class ChatDetail extends Component {

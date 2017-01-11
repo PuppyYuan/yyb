@@ -9,18 +9,16 @@ let height = window.height;
 const styles = StyleSheet.create({
     navi: {
         width: width,
-
         backgroundColor: '#45a99e',
         flexDirection: 'row',
-        ...Platform.select({
-            ios: {
-                height: 60,
-                paddingTop: 20,
-            },
-            android: {
-                height: 40,
-            },
+        height: Platform.select({
+            ios: 60,
+            android: 40,
         }),
+        paddingTop: Platform.select({
+            ios: 20,
+            android: 0,
+        })
     },
     navi_mid: {
         flex: 14,
@@ -29,14 +27,6 @@ const styles = StyleSheet.create({
     },
     navi_mid_txt: {
         color: '#fff',
-        ...Platform.select({
-            ios: {
-                lineHeight: 40,
-            },
-            android: {
-                lineHeight: 30,
-            },
-        }),
         textAlign: 'center'
     },
     navi_left: {

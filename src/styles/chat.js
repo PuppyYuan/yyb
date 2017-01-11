@@ -130,7 +130,75 @@ const styles = StyleSheet.create({
     },
     chatContent: {
         flex: 1,
+        backgroundColor: '#f9f9f9',
+    },
+    chatContentTextInputStyle: {
+        fontSize: 14,
+        lineHeight: 14,
+        marginLeft: 8,
+    },
+    chatContentContainerStyle: {
+        height: 40,
+        justifyContent: 'center',
+    },
+    chatContentTextStyle: {
+        color: '#45a99e',
+        fontSize: 14,
+        fontWeight: '400',
+    },
+    chatContentWrapperStyle: {
+        height: 20,
+        borderRadius: 10,
     }
 });
 
-module.exports = styles;
+const messageTextStyle = {
+    fontSize: 14,
+    lineHeight: 20,
+    marginTop: 5,
+    marginBottom: 5,
+    marginLeft: 10,
+    marginRight: 10,
+};
+
+
+const messageTextTextStyles = StyleSheet.create({
+    left: {
+        color: '#333',
+        ...messageTextStyle,
+    },
+    right: {
+        color: 'white',
+        ...messageTextStyle,
+    },
+});
+
+const messageTextLinkStyles = StyleSheet.create({
+    left: {
+        color: '#333',
+        textDecorationLine: 'underline',
+    },
+    right: {
+        color: 'white',
+        textDecorationLine: 'underline',
+    },
+});
+
+const bubbleWrapperStyle = StyleSheet.create({
+    left: {
+        borderRadius: 6,
+        backgroundColor: '#efefef',
+        marginRight: 60,
+        minHeight: 20,
+        justifyContent: 'flex-end',
+    },
+    right: {
+        borderRadius: 6,
+        backgroundColor: '#45a99e',
+        marginLeft: 60,
+        minHeight: 20,
+        justifyContent: 'flex-end',
+    },
+});
+
+export { styles, messageTextTextStyles, messageTextLinkStyles, bubbleWrapperStyle };

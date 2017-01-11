@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, ListView, TouchableOpacity, Image } from 'react-native';
 
 import navStyles from '../styles/nav';
-import styles from '../styles/chat';
+import { styles } from '../styles/chat';
 
 var CHATS = [
   {url: require('../images/team/1.jpg'), title: '日稻城亚丁自驾游讨论组', desc: '[14条]我也去'},

@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   login_input_img: {
     marginTop: -3,
     width: 15,
-    height: 15,
+    height: 18,
     marginLeft: width * 0.05,
     marginRight: width * 0.02
   },
