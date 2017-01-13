@@ -36,6 +36,30 @@ export default function user(state=initialState, action){
                 user: {},
                 status: null
             };
+        case USER_ACTIONS.REGIST_DOING:
+            return {
+                ...state,
+                is_registed: false,
+                regstatus: 'doing',
+            };
+        case USER_ACTIONS.REGIST_SUC:
+            return {
+                ...state,
+                is_registed: true,
+                regstatus: 'done',
+            };
+        case USER_ACTIONS.REGIST_FAIL:
+            return {
+                ...state,
+                is_registed: false,
+                regstatus: null
+            };
+        case USER_ACTIONS.REGIST_ERROR:
+            return {
+                ...state,
+                is_registed: false,
+                regstatus: 'error'
+            };
         default:
             return state;
     }

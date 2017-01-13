@@ -19,3 +19,21 @@ export function login(user) {
 export function logout(){
     return {'type': USER_ACTIONS.LOGGED_OUT}
 }
+
+export function regist(user){
+    return (dispatch) => {
+        dispatch({'type': USER_ACTIONS.REGIST_DOING});
+
+        setTimeout(()=>{
+        let inner_get = fetch('https://www.baidu.com')
+            .then((res)=>{
+                dispatch({'type': USER_ACTIONS.REGIST_SUC});
+            })
+            .catch((e)=>{
+                alert(e.message);
+                dispatch({'type': USER_ACTIONS.REGIST_ERROR, error: e});
+            });
+        }, 3000);
+    }
+
+}

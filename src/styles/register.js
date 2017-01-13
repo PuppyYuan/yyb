@@ -43,13 +43,37 @@ const styles = StyleSheet.create({
         backgroundColor: '#edf3f1',
         borderRadius: 25,
         justifyContent: 'center',
-        marginTop: 30
+        marginTop: 15
     },
     login_btn_text: {
         textAlign: 'center',
         color: '#c5c5c5',
         fontSize: 20
     },
+    regist_check: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10,
+        width: width * 0.8,
+        height: width * 0.14,
+    },
+    regist_protocol: {
+        fontSize: 13,
+        color: '#45a99e',
+        marginBottom: 5,
+        marginLeft: -10
+    },
+    regist_avatar_wrap: {
+        width: width,
+        height: 120,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    regist_avatar: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+    }
 });
 
 module.exports = styles;

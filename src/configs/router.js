@@ -4,10 +4,11 @@ import React, {Navigator} from 'react-native';
 import Login from '../containers/login';
 import Line from '../containers/line';
 import Main from '../containers/main';
+import Register from '../containers/register';
 
-import * as sceneConfig from './sceneConfig';
+import RegistProtocol from '../components/registProtocol';
 
-const customFloatFromRight = sceneConfig.customFloatFromRight;
+import { customFloatFromRight, customFloatFromBottom } from './sceneConfig';
 
 class Router {
     constructor(navigator) {
@@ -15,18 +16,18 @@ class Router {
     }
 
     push(props, route) {
-        let routesList = this.navigator.getCurrentRoutes()
-        let nextIndex = routesList[routesList.length - 1].index ? routesList[routesList.length - 1].index + 1 : 1
-        route.props = props
-        route.index = nextIndex
+        let routesList = this.navigator.getCurrentRoutes();
+        let nextIndex = routesList[routesList.length - 1].index ? routesList[routesList.length - 1].index + 1 : 1;
+        route.props = props;
+        route.index = nextIndex;
         this.navigator.push(route)
     }
 
     replace(props, route) {
-        let routesList = this.navigator.getCurrentRoutes()
-        let nextIndex = routesList[routesList.length - 1].index
-        route.props = props
-        route.index = nextIndex
+        let routesList = this.navigator.getCurrentRoutes();
+        let nextIndex = routesList[routesList.length - 1].index;
+        route.props = props;
+        route.index = nextIndex;
         this.navigator.replace(route)
     }
 
@@ -50,8 +51,8 @@ class Router {
         })
     }
 
-    toMain = props => {
-        this.replace(props, {
+    toMain(props) {
+        this.push(props, {
             component: Main,
             name: 'main',
             sceneConfig: customFloatFromRight
@@ -68,7 +69,23 @@ class Router {
             component: Login
         })
     }
+
+    toRegister(props){
+        this.push(props, {
+            component: Register,
+            name: 'register',
+            sceneConfig: customFloatFromBottom
+        })
+    }
+
+    toRegistProtocol(props) {
+        this.push(props, {
+            component: RegistProtocol,
+            name: 'registProtocol',
+            sceneConfig: customFloatFromRight,
+        })
+    }
 }
 
-module.exports = Router
+module.exports = Router;
 

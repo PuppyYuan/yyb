@@ -24,6 +24,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8A25AD7A43584218AD858577 /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F3B87F8A2F4B00AC474AFA /* libRNSpinkit.a */; };
+		956E68A6076146C4BE7C5390 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4AFA840D4A4817A88D0D99 /* libRNImagePicker.a */; };
 		97F61B401DFEF43D004BAB7B /* libRCTBaiduMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F61B2E1DFEF3D8004BAB7B /* libRCTBaiduMap.a */; };
 		97F61B491DFF8B11004BAB7B /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F61B421DFF8B11004BAB7B /* BaiduMapAPI_Base.framework */; };
 		97F61B4A1DFF8B11004BAB7B /* BaiduMapAPI_Cloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F61B431DFF8B11004BAB7B /* BaiduMapAPI_Cloud.framework */; };
@@ -122,6 +123,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		9710873C1E26556400E0BDAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FADA4B1F8BCA4BDF9280D37D /* RNImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
+			remoteInfo = RNImagePicker;
+		};
 		97F61AFF1DFED15F004BAB7B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */;
@@ -208,6 +216,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = yyb/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		47F3B87F8A2F4B00AC474AFA /* libRNSpinkit.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSpinkit.a; sourceTree = "<group>"; };
+		4C4AFA840D4A4817A88D0D99 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		97F61B281DFEF3D8004BAB7B /* RCTBaiduMap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBaiduMap.xcodeproj; path = "../node_modules/react-native-baidu-map/ios/RCTBaiduMap.xcodeproj"; sourceTree = "<group>"; };
@@ -229,6 +238,7 @@
 		97F61B611DFF8B95004BAB7B /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		97F61B631DFF8C50004BAB7B /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = "../node_modules/react-native-baidu-map/ios/lib/BaiduMapAPI_Map.framework/Resources/mapapi.bundle"; sourceTree = "<group>"; };
 		BF10F84A96654DADBB43EA43 /* RNSpinkit.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSpinkit.xcodeproj; path = "../node_modules/react-native-spinkit/ios/RNSpinkit.xcodeproj"; sourceTree = "<group>"; };
+		FADA4B1F8BCA4BDF9280D37D /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +282,7 @@
 				97F61B4B1DFF8B11004BAB7B /* BaiduMapAPI_Location.framework in Frameworks */,
 				8A25AD7A43584218AD858577 /* libRNSpinkit.a in Frameworks */,
 				97F61B4C1DFF8B11004BAB7B /* BaiduMapAPI_Map.framework in Frameworks */,
+				956E68A6076146C4BE7C5390 /* libRNImagePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +413,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				BF10F84A96654DADBB43EA43 /* RNSpinkit.xcodeproj */,
+				FADA4B1F8BCA4BDF9280D37D /* RNImagePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -434,6 +446,14 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* yyb.app */,
 				00E356EE1AD99517003FC87E /* yybTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		971087271E26556400E0BDAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9710873D1E26556400E0BDAC /* libRNImagePicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -588,6 +608,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = 971087271E26556400E0BDAC /* Products */;
+					ProjectRef = FADA4B1F8BCA4BDF9280D37D /* RNImagePicker.xcodeproj */;
+				},
+				{
 					ProductGroup = 97F61AF91DFED15D004BAB7B /* Products */;
 					ProjectRef = BF10F84A96654DADBB43EA43 /* RNSpinkit.xcodeproj */;
 				},
@@ -669,6 +693,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9710873D1E26556400E0BDAC /* libRNImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImagePicker.a;
+			remoteRef = 9710873C1E26556400E0BDAC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		97F61B001DFED15F004BAB7B /* libRCTImage-tvOS.a */ = {
@@ -828,6 +859,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/yyb.app/yyb";
@@ -844,6 +876,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -866,6 +899,7 @@
 					ode_modules,
 					"eact-native-spinkitios/**",
 					"$(SRCROOT)/../node_modules/react-native-baidu-map/ios/RCTBaiduMap",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = yyb/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -895,6 +929,7 @@
 					ode_modules,
 					"eact-native-spinkitios/**",
 					"$(SRCROOT)/../node_modules/react-native-baidu-map/ios/RCTBaiduMap",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				INFOPLIST_FILE = yyb/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -930,6 +965,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -948,7 +984,10 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)..\node_modules\neact-native-spinkitios/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-spinkitios/**",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -978,6 +1017,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -989,7 +1029,10 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
-					"$(SRCROOT)..\node_modules\neact-native-spinkitios/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-spinkitios/**",
+					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

@@ -48,6 +48,7 @@ export default class ChatDetail extends Component {
                 </View>
                 <View style={styles.chatContent}>
                     <ScrollableTabView
+                        contentProps={{keyboardShouldPersistTaps: true}}
                         tabBarTextStyle={{color: '#999'}}
                         tabBarActiveTextColor={'#000'}
                         tabBarUnderlineStyle={{height: 2, backgroundColor: '#76c2b9'}}
