@@ -52,6 +52,8 @@ class Router {
     }
 
     toMain(props) {
+        // 登录去主页的时候清除左滑手势
+        customFloatFromRight.gestures = null;
         this.push(props, {
             component: Main,
             name: 'main',

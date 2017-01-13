@@ -1,21 +1,14 @@
 'use strict'
 // 首页
 
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TouchableOpacity,
-TextInput, ScrollView, Picker} from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, Image, TouchableOpacity, TextInput, ScrollView, Picker} from 'react-native';
 
 import ViewPager from 'react-native-viewpager';
 
 import styles from '../styles/home';
 
-var IMGS = [
-  require('../images/line/1.jpg'),
-  require('../images/line/2.jpg'),
-  require('../images/line/3.jpg'),
-  require('../images/line/4.jpg'),
-  require('../images/line/5.jpg')
-];
+import {homeAd} from '../assets/home';
 
 export default class Home extends Component {
 
@@ -23,20 +16,20 @@ export default class Home extends Component {
         super(props);
         const ds = new ViewPager.DataSource({pageHasChanged: (p1, p2) => p1 !== p2});
         this.state = {
-            dataSource: ds.cloneWithPages(IMGS)
+            dataSource: ds.cloneWithPages(homeAd)
         }
     }
 
     _renderPage(data, pageID) {
         return (
-        <Image
-            source={ data }
-            style={styles.viewpage} />
+            <Image
+                source={ data }
+                style={styles.viewpage}/>
         );
     }
 
-    render () {
-        
+    render() {
+
         return (
             <View style={styles.container}>
                 <View style={styles.viewpager}>
@@ -61,9 +54,9 @@ export default class Home extends Component {
                             <Text style={styles.homeFormRowLeftTxt}>线路：</Text>
                         </View>
                         <View style={styles.homeFormRowMid}></View>
-                        <TouchableOpacity style={styles.homeFormRowRight} >
-                            <Image 
-                                source={require('../images/activity_map.png')} 
+                        <TouchableOpacity style={styles.homeFormRowRight}>
+                            <Image
+                                source={require('../images/activity_map.png')}
                                 style={styles.homeFormRowRightImg}
                             />
                             <Text style={styles.homeFormRowRightTxt}>选择线路</Text>
@@ -78,9 +71,9 @@ export default class Home extends Component {
                             <Picker
                                 selectedValue={this.state.familiar}
                                 onValueChange={(value) => this.setState({familiar: value})}>
-                                <Picker.Item label="不限" value="0" />
-                                <Picker.Item label="是" value="1" />
-                                <Picker.Item label="否" value="2" />
+                                <Picker.Item label="不限" value="0"/>
+                                <Picker.Item label="是" value="1"/>
+                                <Picker.Item label="否" value="2"/>
                             </Picker>
                         </View>
                         <View style={styles.homeFormRowRight}></View>
@@ -94,10 +87,10 @@ export default class Home extends Component {
                             <Picker
                                 selectedValue={this.state.amount}
                                 onValueChange={(value) => this.setState({amount: value})}>
-                                <Picker.Item label="不限" value="0" />
-                                <Picker.Item label="1~3人" value="1" />
-                                <Picker.Item label="3~5人" value="2" />
-                                <Picker.Item label="大于5人" value="3" />
+                                <Picker.Item label="不限" value="0"/>
+                                <Picker.Item label="1~3人" value="1"/>
+                                <Picker.Item label="3~5人" value="2"/>
+                                <Picker.Item label="大于5人" value="3"/>
                             </Picker>
                         </View>
                         <View style={styles.homeFormRowRight}></View>
@@ -111,14 +104,14 @@ export default class Home extends Component {
                             <Picker
                                 selectedValue={this.state.need_car}
                                 onValueChange={(value) => this.setState({need_car: value})}>
-                                <Picker.Item label="不限" value="0" />
-                                <Picker.Item label="是" value="1" />
-                                <Picker.Item label="否" value="2" />
+                                <Picker.Item label="不限" value="0"/>
+                                <Picker.Item label="是" value="1"/>
+                                <Picker.Item label="否" value="2"/>
                             </Picker>
                         </View>
-                        <TouchableOpacity style={styles.homeFormRowRight} >
-                            <Image 
-                                source={require('../images/activity_map.png')} 
+                        <TouchableOpacity style={styles.homeFormRowRight}>
+                            <Image
+                                source={require('../images/activity_map.png')}
                                 style={styles.homeFormRowRightImg}
                             />
                             <Text style={styles.homeFormRowRightTxt}>选择包车</Text>
@@ -129,9 +122,9 @@ export default class Home extends Component {
                             <Text style={styles.homeFormRowLeftTxt}>集合地点：</Text>
                         </View>
                         <View style={styles.homeFormRowMid}></View>
-                        <TouchableOpacity style={styles.homeFormRowRight} >
-                            <Image 
-                                source={require('../images/activity_map.png')} 
+                        <TouchableOpacity style={styles.homeFormRowRight}>
+                            <Image
+                                source={require('../images/activity_map.png')}
                                 style={styles.homeFormRowRightImg}
                             />
                             <Text style={styles.homeFormRowRightTxt}>选择</Text>
@@ -145,13 +138,13 @@ export default class Home extends Component {
                             <Picker
                                 selectedValue={this.state.fee_type}
                                 onValueChange={(value) => this.setState({fee_type: value})}>
-                                <Picker.Item label="AA" value="0" />
-                                <Picker.Item label="公司负责" value="1" />
-                                <Picker.Item label="领队负责" value="2" />
+                                <Picker.Item label="AA" value="0"/>
+                                <Picker.Item label="公司负责" value="1"/>
+                                <Picker.Item label="领队负责" value="2"/>
                             </Picker>
                         </View>
                         <View style={styles.homeFormRowRight}>
-                            
+
                         </View>
                     </View>
                     <View style={styles.homeFormRow}>
@@ -162,9 +155,9 @@ export default class Home extends Component {
                             <Picker
                                 selectedValue={this.state.activity_type}
                                 onValueChange={(value) => this.setState({activity_type: value})}>
-                                <Picker.Item label="徒步" value="0" />
-                                <Picker.Item label="自驾" value="1" />
-                                <Picker.Item label="露营" value="2" />
+                                <Picker.Item label="徒步" value="0"/>
+                                <Picker.Item label="自驾" value="1"/>
+                                <Picker.Item label="露营" value="2"/>
                             </Picker>
                         </View>
                         <View style={styles.homeFormRowRight}></View>
