@@ -1,6 +1,6 @@
 'use strict'
 
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, autoRehydrate } from 'redux-persist';
 import { AsyncStorage } from 'react-native';
@@ -8,7 +8,7 @@ import reducers from '../reducers';
 
 const logger = store => next => action => {
     if(typeof action === 'function') console.log('dispatching a function');
-    else console.log('dispatching', action);
+    else console.log('dispatching', action.type);
 
     let result  = next(action);
     console.log('next state', store.getState());
@@ -18,13 +18,9 @@ const logger = store => next => action => {
 let createAppStrore = applyMiddleware(logger, thunk)(createStore);
 
 export default function configureStore(onComplete: ()=>void){
-    const store = autoRehydrate()(createAppStrore)(reducers);
 
-    let opt = {
-        storage: AsyncStorage,
-        transform: []
-    }
+    const store = compose(autoRehydrate())(createAppStrore)(reducers);
 
-    persistStore(store, opt, onComplete);
+    persistStore(store, {storage: AsyncStorage}, onComplete);
     return store;
 }

@@ -7,14 +7,16 @@ export function line_list(){
     return (dispatch) => {
         dispatch({'type': LINE_ACTIONS.LINE_LIST_DOING});
 
-        let inner_get = fetch('https://www.baidu.com')
-        .then((res)=>{
-            dispatch({'type': LINE_ACTIONS.LINE_LIST_SUC, user: {}})
-        })
-        .catch((e)=>{
-            alert(e.message);
-            dispatch({'type': LINE_ACTIONS.LINE_LIST_ERROR, error: e});
-        });
+        setTimeout(()=>{
+            let inner_get = fetch('https://www.baidu.com')
+            .then((res)=>{
+                dispatch({'type': LINE_ACTIONS.LINE_LIST_SUC, user: {}})
+            })
+            .catch((e)=>{
+                alert(e.message);
+                dispatch({'type': LINE_ACTIONS.LINE_LIST_ERROR, error: e});
+            });
+        }, 2000)
     }
 }
 

@@ -29,7 +29,7 @@ export default class MainPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: 'home',
+            selectedTab: 'line',
             tabTitle: ['首页', '线路召集', '线路', '聊天', '我']
         }
     }

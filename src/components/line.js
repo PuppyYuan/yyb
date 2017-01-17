@@ -5,10 +5,14 @@ import {StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput, 
 
 import CustomPicker from '../widget/CustomPicker';
 
+import GiftedListView from 'react-native-gifted-listview';
+
+import CustomListView from '../widget/CustomListView';
+
 import navStyles from '../styles/nav';
 import styles from '../styles/line';
 
-import { lineCondition } from '../assets/line'
+import { lineCondition, lineData } from '../assets/line'
 
 export default class Line extends Component {
 
@@ -16,11 +20,11 @@ export default class Line extends Component {
         super(props);
 
         this.state = {
-            pickerItems: lineCondition
+            pickerItems: lineCondition,
         }
     }
 
-    shouldComponentUpdate = (nextProps, nextState) => {
+    shouldComponentUpdate (nextProps, nextState) {
 
         if(nextProps.user.is_logged_in != this.props.user.is_logged_in && !nextProps.user.is_logged_in){
             this.resetToLogin();
@@ -30,15 +34,22 @@ export default class Line extends Component {
         return true;
     }
 
-    resetToLogin = () => {
+    resetToLogin () {
         const { router } = this.props;
         router.resetToLogin();
     }
 
+    toLineDetail(id){
+        const { router } = this.props;
+        router.toLineDetail({line_id: id})
+    }
+
+    onRefresh(){
+        this.props.lineList();
+    }
+
     render() {
-        if(this.props.line.status === 'done'){
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        var dataSource = ds.cloneWithRows(this.props.line.data);
+
         return (
             <View style={styles.container} >
 
@@ -55,21 +66,23 @@ export default class Line extends Component {
                     </View>
                     <View style={navStyles.navi_right} />
                 </View>
-                <ListView
-                    dataSource={dataSource}
+
+                <CustomListView
+                    onRefresh={this.onRefresh.bind(this)}
+                    rows={this.props.line.lines}
+                    firstLoad={true}
+                    isFetch={this.props.line.is_fetching}
                     renderRow={this._renderRow}
                 />
+
             </View>
         );
-        }else{
-            return <View><Text>加载中…</Text></View>
-        }
     }
 
     _renderRow = (rowData, sectionID, rowID) => {
         return (
-            <TouchableOpacity style={styles.list_item}>
-                <View>
+            <TouchableOpacity onPress={this.toLineDetail.bind(this, rowData.id)}>
+                <View  style={styles.list_item}>
                     <Image source={rowData.url} style={styles.list_item_img}/>
                     <Text style={styles.list_item_ttl}>{rowData.title}</Text>
                     <Text style={styles.list_item_desc}>{rowData.desc}</Text>
@@ -78,7 +91,12 @@ export default class Line extends Component {
         )
     }
 
-    componentDidMount = () => {
-        this.props.lineList();
+    _renderEmptyView(){
+        return (
+            <View style={styles.line_empty_view}>
+                <Image source={require('../images/icon_search_empty.png')} style={styles.line_empty_view_img}/>
+                <Text style={styles.line_empty_view_txt}>换个条件试试</Text>
+            </View>
+        );
     }
 }

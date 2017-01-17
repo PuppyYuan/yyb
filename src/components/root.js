@@ -1,3 +1,5 @@
+'use strict'
+
 import React, { Component } from 'react';
 import { Navigator } from 'react-native';
 import { connect } from 'react-redux';
@@ -12,22 +14,20 @@ import Test from '../components/test';
 
 class Root extends Component {
     constructor(props){
-        super(props);       
+        super(props);
     }
 
     renderScene(route, navigator) {
         
         return <route.component 
                     router= { this.router || new Router(navigator)} 
-                    {...route.passProps}
+                    {...route.props}
                 />
     }
 
     initialRoute = () => {
-
         if(!this.props.is_logged_in){
             return { name: 'login', component: Login, index: 0 }
-            
         }
         return { name: 'main', component: Main, index: 0 }
     }

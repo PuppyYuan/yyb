@@ -5,6 +5,7 @@ import Login from '../containers/login';
 import Line from '../containers/line';
 import Main from '../containers/main';
 import Register from '../containers/register';
+import LineDetail from '../components/lineDetail';
 
 import RegistProtocol from '../components/registProtocol';
 
@@ -66,10 +67,17 @@ class Router {
     }
 
     resetToLogin(){
-        this.navigator.resetTo({
+        let route ={
             name: 'login',
-            component: Login
-        })
+            component: Login,
+            sceneConfig: customFloatFromRight
+        };
+
+        this.navigator.push(route)
+
+        setTimeout(()=>{
+            this.navigator.immediatelyResetRouteStack([route]);
+        }, 800);
     }
 
     toRegister(props){
@@ -84,6 +92,14 @@ class Router {
         this.push(props, {
             component: RegistProtocol,
             name: 'registProtocol',
+            sceneConfig: customFloatFromRight,
+        })
+    }
+
+    toLineDetail(props){
+        this.push(props, {
+            component: LineDetail,
+            name: 'lineDetail',
             sceneConfig: customFloatFromRight,
         })
     }
