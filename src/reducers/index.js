@@ -3,8 +3,10 @@
 import { combineReducers } from 'redux';
 import user from './user';
 import line from './line';
+import chat from './chat';
 
 export default combineReducers({
     user,
-    line
+    line,
+    chat,
 });

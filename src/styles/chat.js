@@ -2,35 +2,12 @@
 
 import {StyleSheet, Dimensions, Image } from 'react-native';
 
-let window = Dimensions.get('window');
-let width = window.width;
-let height = window.height;
+const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#f1f1f6',
-    },
-    navi: {
-        width: width,
-        height: 40, 
-        backgroundColor: '#45a99e',
-        flexDirection: 'row',
-    },
-    navi_txt: {
-        width: width * 0.7,
-        color: '#fff',
-        lineHeight: 30,
-        textAlign: 'center'
-    },
-    navi_btn: {
-        width: width * 0.15,
-        height: 40,
-    },
-    navi_btn_txt: {
-        color: '#fff',
-        lineHeight: 30,
-        textAlign: 'center'
     },
     searchView: {
         width: width,
@@ -45,10 +22,7 @@ const styles = StyleSheet.create({
         color: '#666'
     },
     chatListView: {
-        marginTop: 20,
-        flex: 1,
-    },
-    chatList: {
+        marginTop: 10,
         flex: 1,
         backgroundColor: 'white',
     },

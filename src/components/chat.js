@@ -6,33 +6,29 @@ import { View, Text, TextInput, ListView, TouchableOpacity, Image } from 'react-
 import navStyles from '../styles/nav';
 import { styles } from '../styles/chat';
 
-var CHATS = [
-  {url: require('../images/team/1.jpg'), title: '日稻城亚丁自驾游讨论组', desc: '[14条]我也去'},
-  {url: require('../images/team/2.jpg'), title: '[清洁山野]白云章环线（2016年10月16日）', desc: '[14条]我也去'},
-  {url: require('../images/team/3.jpg'), title: '10月16日罗浮山休闲伴侣', desc: '[14条]我也去'},
-  {url: require('../images/team/4.jpg'), title: '梧桐山山村-二线关石板线路', desc: '[14条]我也去'},
-  {url: require('../images/team/5.jpg'), title: '10月16日梧桐山打火锅1天休闲户外', desc: '[14条]我也去'},
-  {url: require('../images/team/1.jpg'), title: '2016年10月15日至21日稻城亚丁自驾游', desc: '[14条]我也去'},
-  {url: require('../images/team/2.jpg'), title: '[清洁山野]白云章环线（2016年10月16日）', desc: '[14条]我也去'},
-  {url: require('../images/team/3.jpg'), title: '10月16日罗浮山休闲伴侣', desc: '[14条]我也去'},
-  {url: require('../images/team/4.jpg'), title: '梧桐山山村-二线关石板线路', desc: '[14条]我也去'},
-  {url: require('../images/team/5.jpg'), title: '10月16日梧桐山打火锅1天休闲户外', desc: '[14条]我也去'},
-];
+import { chatList } from '../assets/chat';
 
-export default class Chat extends Component {
+import CustomListView from '../widget/CustomListView';
+
+export default class ChatPage extends Component {
 
     constructor(props) {
         super(props);
         const dsList = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         
         this.state = {
-            dataSourceList: dsList.cloneWithRows(CHATS)
+            dataSourceList: dsList.cloneWithRows(chatList)
         }
+    }
+
+    toChatDetail(id){
+        const { router } = this.props;
+        router.toChatDetail({chat_id: id});
     }
 
     _renderRow = (rowData, sectionID, rowID) => {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.toChatDetail.bind(this,rowData.id)}>
                 <View style={styles.chatListItem}>
                     <View style={styles.chatListItemLeft}>
                         <Image source={rowData.url} style={styles.chatListItemLeftImg}/>
@@ -65,7 +61,7 @@ export default class Chat extends Component {
                 <View style={navStyles.navi}>
                     <View style={navStyles.navi_left} />
                     <View style={navStyles.navi_mid} >
-                        <Text style={navStyles.navi_mid_txt}>聊天(3)</Text>
+                        <Text style={navStyles.navi_mid_txt}>聊天({this.props.chat.chats.length})</Text>
                     </View>
                     <View style={navStyles.navi_right} />
                 </View>
@@ -81,8 +77,12 @@ export default class Chat extends Component {
                         />
                 </View>
                 <View style={styles.chatListView}>
-                    <ListView style={styles.chatList}
-                        dataSource={this.state.dataSourceList}
+
+                    <CustomListView
+                        onRefresh={this.props.chatList}
+                        rows={this.props.chat.chats}
+                        firstLoad={true}
+                        isFetch={this.props.chat.is_fetching}
                         renderRow={this._renderRow}
                     />
                 </View>

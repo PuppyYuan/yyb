@@ -65,7 +65,6 @@ export default class Team extends Component {
     }
 
     componentDidMount() {
-        alert(123)
     }
 
     render() {

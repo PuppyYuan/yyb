@@ -7,11 +7,13 @@ import TabNavigator from 'react-native-tab-navigator';
 
 import mainStyles from '../styles/main';
 
+import { mainTab } from '../assets/main';
+
 import Home from './home';
 import Team from '../components/team';
 import Line from '../containers/line';
 import LineDetail from '../components/lineDetail';
-import Chat from '../components/chat';
+import Chat from '../containers/chat';
 import Mine from '../components/mine';
 
 import ChatDetail from '../components/chatDetail';
@@ -29,8 +31,19 @@ export default class MainPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: 'line',
-            tabTitle: ['首页', '线路召集', '线路', '聊天', '我']
+            selectedTab: mainTab[1].key,
+        }
+    }
+
+    onChangeTab = tab => {
+
+        if( (tab === mainTab[3].key || tab === mainTab[4].key) && !this.props.user.is_logged_in ){
+            const { router } = this.props;
+            router.resetToLogin();
+        } else {
+            this.setState({
+                selectedTab: tab
+            })
         }
     }
 
@@ -42,42 +55,42 @@ export default class MainPage extends Component {
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
                     selectedTitleStyle={mainStyles.tabBarSelectedTitleStyle}
-                    selected={this.state.selectedTab === 'home'}
-                    title={this.state.tabTitle[0]}
-                    onPress={() => this.setState({ selectedTab: 'home' })}>
-                    <Home/>
+                    selected={this.state.selectedTab === mainTab[0].key}
+                    title={mainTab[0].title}
+                    onPress={() => this.onChangeTab(mainTab[0].key)}>
+                    <Home {...this.props} />
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
                     selectedTitleStyle={mainStyles.tabBarSelectedTitleStyle}
-                    selected={this.state.selectedTab === 'team'}
-                    title={this.state.tabTitle[1]}
-                    onPress={() => this.setState({ selectedTab: 'team' })}>
-                    <Team/>
+                    selected={this.state.selectedTab === mainTab[1].key}
+                    title={mainTab[1].title}
+                    onPress={() => this.onChangeTab(mainTab[1].key)}>
+                    <Team {...this.props} />
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
                     selectedTitleStyle={mainStyles.tabBarSelectedTitleStyle}
-                    selected={this.state.selectedTab === 'line'}
-                    title={this.state.tabTitle[2]}
-                    onPress={() => this.setState({ selectedTab: 'line' })}>
+                    selected={this.state.selectedTab === mainTab[2].key}
+                    title={mainTab[2].title}
+                    onPress={() => this.onChangeTab(mainTab[2].key)}>
                     <Line {...this.props} />
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
                     selectedTitleStyle={mainStyles.tabBarSelectedTitleStyle}
-                    selected={this.state.selectedTab === 'chat'}
-                    title={this.state.tabTitle[3]}
-                    onPress={() => this.setState({ selectedTab: 'chat' })}>
-                    <Chat/>
+                    selected={this.state.selectedTab === mainTab[3].key}
+                    title={mainTab[3].title}
+                    onPress={() => this.onChangeTab(mainTab[3].key)}>
+                    <Chat {...this.props} />
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     titleStyle={mainStyles.tabBarTitleStyle}
                     selectedTitleStyle={mainStyles.tabBarSelectedTitleStyle}
-                    selected={this.state.selectedTab === 'mine'}
-                    title={this.state.tabTitle[4]}
-                    onPress={() => this.setState({ selectedTab: 'mine' })}>
-                    <Mine/>
+                    selected={this.state.selectedTab === mainTab[4].key}
+                    title={mainTab[4].title}
+                    onPress={() => this.onChangeTab(mainTab[4].key)}>
+                    <Mine {...this.props} />
                 </TabNavigator.Item>
             </TabNavigator>
         )

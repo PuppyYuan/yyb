@@ -10,20 +10,24 @@ import ChatContent from './chatContent';
 import navStyles from '../styles/nav';
 import { styles } from '../styles/chat';
 
-
 export default class ChatDetail extends Component {
 
     constructor(props) {
         super(props);
     }
 
+    goBack() {
+        const { router } = this.props;
+        router.pop();
+    }
     
     render () {
+
         return (
             <View style={styles.container} >
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity  style={navStyles.navi_left}>
+                    <TouchableOpacity  style={navStyles.navi_left} onPress={this.goBack.bind(this)}>
                         <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
                     <View style={navStyles.navi_mid} >

@@ -7,7 +7,6 @@ import { line_list } from '../actions/line';
 
 import LinePage from '../components/line';
 
-
 const mapDispatchToProps = (dispatch) => {
   return {
     handleLogout: () => {
@@ -17,15 +16,15 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(line_list())
     }
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return { 
     user: state.user,
     line: state.line  
   };
-}
+};
 
-const Line = connect(mapStateToProps, mapDispatchToProps)(LinePage)
+const Line = connect(mapStateToProps, mapDispatchToProps)(LinePage);
 
 export default Line;

@@ -12,6 +12,8 @@ import {
     Image
 } from 'react-native';
 
+import CustomSpinner from '../widget/CustomSpinner';
+
 export default class CustomListView extends Component {
 
     constructor(props) {
@@ -48,12 +50,23 @@ export default class CustomListView extends Component {
             <RefreshControl
                 onRefresh={this.onRefresh.bind(this)}
                 refreshing={this.props.isFetch}
+                loading={this.props.isLoading}
                 colors={["#999"]}
                 progressBackgroundColor="transparent"
                 tintColor="#999"
                 title="玩命加载中"
             />
         )
+    }
+
+    onEndReached() {
+        if(!this.props.isLoading){
+            this.props.onLoad();
+        }
+    }
+
+    _renderFooter(){
+        return <CustomSpinner/>
     }
 
     _renderEmptyView() {
@@ -75,6 +88,9 @@ export default class CustomListView extends Component {
                 renderRow={this.props.renderRow}
                 refreshControl={this.refreshControl()}
                 enableEmptySections={true}
+                onEndReached={this.onEndReached.bind(this)}
+                onEndReachedThreshold={100}
+                renderFooter={this._renderFooter.bind(this)}
             />
         );
     }
@@ -86,6 +102,8 @@ CustomListView.propTypes = {
     onRefresh: React.PropTypes.func,
     firstLoad: React.PropTypes.bool,
     isFetch: React.PropTypes.bool,
+    isLoading: React.PropTypes.bool,
+    onLoad: React.PropTypes.func,
 };
 
 CustomListView.defaultProps = {};

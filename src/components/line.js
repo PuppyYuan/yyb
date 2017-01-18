@@ -44,10 +44,6 @@ export default class Line extends Component {
         router.toLineDetail({line_id: id})
     }
 
-    onRefresh(){
-        this.props.lineList();
-    }
-
     render() {
 
         return (
@@ -68,10 +64,12 @@ export default class Line extends Component {
                 </View>
 
                 <CustomListView
-                    onRefresh={this.onRefresh.bind(this)}
+                    onRefresh={this.props.lineList}
                     rows={this.props.line.lines}
                     firstLoad={true}
                     isFetch={this.props.line.is_fetching}
+                    isLoading={false}
+                    onLoad={()=>{}}
                     renderRow={this._renderRow}
                 />
 
