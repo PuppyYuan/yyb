@@ -82,7 +82,7 @@ export default class ChatPage extends Component {
                         onRefresh={this.props.refresh_chat}
                         rows={this.props.chat.chats}
                         firstLoad={true}
-                        isFetch={this.props.chat.is_fetching}
+                        isRefreshing={this.props.chat.is_fetching}
                         renderRow={this._renderRow}
                     />
                 </View>

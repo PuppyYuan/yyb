@@ -1,7 +1,7 @@
 'use strict'
 
 import React, {Component} from 'react';
-import {View, ActivityIndicator, ProgressBarAndroid, Platform} from 'react-native';
+import {View, ActivityIndicator, ProgressBarAndroid, Platform, Text} from 'react-native';
 
 export default class CustomSpinner extends Component {
 
@@ -33,8 +33,9 @@ export default class CustomSpinner extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{alignItems: 'center'}}>
                 {this.getSpinner()}
+                {this.props.tips ? <Text style={{color: '#999'}}>{this.props.tips}</Text> : null}
             </View>
         )
     }

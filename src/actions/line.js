@@ -1,32 +1,45 @@
 'use strict'
 
-import * as LINE_ACTIONS from '../constants/line';
+import * as LineActions from '../constants/line';
 
 export function refresh_line(){
 
     return (dispatch) => {
-        dispatch({'type': LINE_ACTIONS.LINE_LIST_DOING});
+        dispatch({'type': LineActions.REFRESH_LINE_DOING});
 
         setTimeout(()=>{
             let inner_get = fetch('https://www.baidu.com')
             .then((res)=>{
-                dispatch({'type': LINE_ACTIONS.LINE_LIST_SUC, user: {}})
+                dispatch({'type': LineActions.REFRESH_LINE_SUC, user: {}})
             })
             .catch((e)=>{
                 alert(e.message);
-                dispatch({'type': LINE_ACTIONS.LINE_LIST_ERROR, error: e});
+                dispatch({'type': LineActions.REFRESH_LINE_ERROR, error: e});
             });
-        }, 2000)
+        }, 1000)
     }
 }
 
 export function line_detail(id){
     return {
-        'type': LINE_ACTIONS.LINE_DETAIL_SUC,
+        'type': LineActions.LINE_DETAIL_SUC,
         'id': id
     }
 }
 
 export function load_line() {
-    
+    return (dispatch) => {
+        dispatch({'type': LineActions.LOAD_LINE_DOING});
+
+        setTimeout(()=>{
+            let inner_get = fetch('https://www.baidu.com')
+                .then((res)=>{
+                    dispatch({'type': LineActions.LOAD_LINE_SUC, user: {}})
+                })
+                .catch((e)=>{
+                    alert(e.message);
+                    dispatch({'type': LineActions.LOAD_LINE_ERROR, error: e});
+                });
+        }, 1000)
+    }
 }

@@ -1,9 +1,14 @@
 'use strict'
 
-export const LINE_LIST_DOING = 'LINE_LIST_DOING';
-export const LINE_LIST_SUC = 'LINT_LIST_SUC';
-export const LINE_LIST_FAIL = 'LINE_LIST_FAIL';
-export const LINE_LIST_ERROR = 'LINE_LIST_ERROR';
+export const REFRESH_LINE_DOING = 'REFRESH_LINE_DOING';
+export const REFRESH_LINE_SUC = 'REFRESH_LINE_SUC';
+export const REFRESH_LINE_FAIL = 'REFRESH_LINE_FAIL';
+export const REFRESH_LINE_ERROR = 'LREFRESH_LINE_ERROR';
+
+export const LOAD_LINE_DOING = 'LOAD_LINE_DOING';
+export const LOAD_LINE_SUC = 'LOAD_LINE_SUC';
+export const LOAD_LINE_FAIL = 'LOAD_LINE_FAIL';
+export const LOAD_LINE_ERROR = 'LOAD_LINE_ERROR';
 
 export const LINE_DETAIL_DOING = 'LINE_DETAIL_DOING';
 export const LINE_DETAIL_SUC = 'LINE_DETAIL_SUC';

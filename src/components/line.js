@@ -43,7 +43,6 @@ export default class Line extends Component {
     }
 
     render() {
-
         return (
             <View style={styles.container} >
 
@@ -65,9 +64,9 @@ export default class Line extends Component {
                     onRefresh={this.props.refresh_line}
                     rows={this.props.line.lines}
                     firstLoad={true}
-                    isFetch={this.props.line.is_fetching}
-                    isLoading={false}
-                    onLoad={()=>{}}
+                    isRefreshing={this.props.line.is_refreshing}
+                    isLoading={this.props.line.is_loading}
+                    onLoad={this.props.load_line}
                     renderRow={this._renderRow}
                 />
 
