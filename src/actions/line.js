@@ -2,7 +2,7 @@
 
 import * as LINE_ACTIONS from '../constants/line';
 
-export function line_list(){
+export function refresh_line(){
 
     return (dispatch) => {
         dispatch({'type': LINE_ACTIONS.LINE_LIST_DOING});
@@ -25,4 +25,8 @@ export function line_detail(id){
         'type': LINE_ACTIONS.LINE_DETAIL_SUC,
         'id': id
     }
+}
+
+export function load_line() {
+    
 }

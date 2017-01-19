@@ -1,22 +1,19 @@
-'use strict'
+'use strict';
 
-import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-import { regist } from '../actions/user';
+import * as UserActions from '../actions/user';
 
 import RegisterPage from '../components/register';
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        doRegist: (user) => {
-            dispatch(regist(user))
-        }
-    }
-}
+    return bindActionCreators(UserActions, dispatch);
+};
 
 const mapStateToProps = (state) => {
     return state.user;
-}
+};
 
 const Register = connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
 

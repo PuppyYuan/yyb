@@ -2,7 +2,7 @@
 
 import * as CHAT_ACTIONS from '../constants/chat';
 
-export function chat_list(){
+export function refresh_chat(){
     return (dispatch) => {
         dispatch({'type': CHAT_ACTIONS.CHAT_LIST_DOING});
 

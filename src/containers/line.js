@@ -1,28 +1,22 @@
-'use strict'
+'use strict';
 
-import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-import { login, logout } from '../actions/user';
-import { line_list } from '../actions/line';
+import * as UserActions from '../actions/user';
+import * as LineActions  from '../actions/line';
 
 import LinePage from '../components/line';
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    handleLogout: () => {
-      dispatch(logout())
-    },
-    lineList: () => {
-      dispatch(line_list())
-    }
-  }
+    return Object.assign({}, bindActionCreators(UserActions, dispatch), bindActionCreators(LineActions, dispatch));
 };
 
 const mapStateToProps = (state) => {
-  return { 
-    user: state.user,
-    line: state.line  
-  };
+    return {
+        user: state.user,
+        line: state.line
+    };
 };
 
 const Line = connect(mapStateToProps, mapDispatchToProps)(LinePage);

@@ -118,17 +118,17 @@ export default class RegisterPage extends Component {
 
     handleRegist(){
         if(!this.state.username || !this.state.password){
-            CustomAlert.alert('温馨提示', '用户名或者密码不能为空!')
+            CustomAlert.alert('温馨提示', '用户名或者密码不能为空!');
             return;
         }
 
         if(!this.state.password || !this.state.repassword || this.state.password !== this.state.repassword){
-            CustomAlert.alert('温馨提示', '两次输入的密码不一致!')
+            CustomAlert.alert('温馨提示', '两次输入的密码不一致!');
             return;
         }
 
         if(!this.state.checked){
-            CustomAlert.alert('温馨提示', '请阅读并同意用户协议!')
+            CustomAlert.alert('温馨提示', '请阅读并同意用户协议!');
             return;
         }
 
@@ -136,9 +136,9 @@ export default class RegisterPage extends Component {
             username: this.state.username,
             password: this.state.password,
             avatar: this.state.avatar
-        }
+        };
 
-        this.props.doRegist(user);
+        this.props.regist(user);
 
     }
 

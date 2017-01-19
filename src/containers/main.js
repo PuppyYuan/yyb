@@ -1,21 +1,20 @@
-'use strict'
+'use strict';
 
-import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
-import { login, logout } from '../actions/user';
-import { line_list } from '../actions/line';
+import * as UserActions from '../actions/user';
 
 import MainPage from '../components/main';
 
-
 const mapDispatchToProps = (dispatch) => {
-  return {}
+    return {}
 };
 
 const mapStateToProps = (state) => {
-  return { 
-    user: state.user
-  };
+    return {
+        user: state.user
+    };
 };
 
 const Main = connect(mapStateToProps, mapDispatchToProps)(MainPage);

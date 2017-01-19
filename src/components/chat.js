@@ -79,7 +79,7 @@ export default class ChatPage extends Component {
                 <View style={styles.chatListView}>
 
                     <CustomListView
-                        onRefresh={this.props.chatList}
+                        onRefresh={this.props.refresh_chat}
                         rows={this.props.chat.chats}
                         firstLoad={true}
                         isFetch={this.props.chat.is_fetching}

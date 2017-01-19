@@ -51,16 +51,16 @@ export default class LoginPage extends Component {
 
     handleLogin() {
         if(!this.state.username || !this.state.password){
-            CustomAlert.alert('温馨提示', '用户名或者密码不能为空!')
+            CustomAlert.alert('温馨提示', '用户名或者密码不能为空!');
             return;
         }
 
         let user = {
             name: this.state.username,
             password: this.state.password
-        }
+        };
         
-        this.props.doLogin(user);
+        this.props.login(user);
     }
 
     onChangeName = text => {

@@ -1,17 +1,15 @@
-'use strict'
+'use strict';
 
+import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
-import { chat_list } from '../actions/chat';
+import * as ChatActions from '../actions/chat';
 
 import ChatPage from '../components/chat';
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        chatList: () => {
-            dispatch(chat_list())
-        }
-    }
+    return bindActionCreators(ChatActions, dispatch);
+
 };
 
 const mapStateToProps = (state) => {

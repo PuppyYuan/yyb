@@ -5,8 +5,6 @@ import {StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput, 
 
 import CustomPicker from '../widget/CustomPicker';
 
-import GiftedListView from 'react-native-gifted-listview';
-
 import CustomListView from '../widget/CustomListView';
 
 import navStyles from '../styles/nav';
@@ -50,7 +48,7 @@ export default class Line extends Component {
             <View style={styles.container} >
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity  style={navStyles.navi_left} onPress= { this.props.handleLogout.bind(this) }>
+                    <TouchableOpacity  style={navStyles.navi_left} onPress= { this.props.logout.bind(this) }>
                         <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
                     <View style={navStyles.navi_mid} >
@@ -64,7 +62,7 @@ export default class Line extends Component {
                 </View>
 
                 <CustomListView
-                    onRefresh={this.props.lineList}
+                    onRefresh={this.props.refresh_line}
                     rows={this.props.line.lines}
                     firstLoad={true}
                     isFetch={this.props.line.is_fetching}
