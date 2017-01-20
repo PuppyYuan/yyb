@@ -7,16 +7,16 @@ export const teamAd = [
 ];
 
 export const teamList = [
-    {url: require('../images/team/1.jpg'), title: '2016年10月15日至21日稻城亚丁自驾游', date: '2016.10.15 共0天'},
-    {url: require('../images/team/2.jpg'), title: '[清洁山野]白云章环线（2016年10月16日）', date: '2016.10.15 共0天'},
-    {url: require('../images/team/3.jpg'), title: '10月16日罗浮山休闲伴侣', date: '2016.10.15 共0天'},
-    {url: require('../images/team/4.jpg'), title: '梧桐山山村-二线关石板线路', date: '2016.10.15 共0天'},
-    {url: require('../images/team/5.jpg'), title: '10月16日梧桐山打火锅1天休闲户外', date: '2016.10.15 共0天'},
-    {url: require('../images/team/1.jpg'), title: '2016年10月15日至21日稻城亚丁自驾游', date: '2016.10.15 共0天'},
-    {url: require('../images/team/2.jpg'), title: '[清洁山野]白云章环线（2016年10月16日）', date: '2016.10.15 共0天'},
-    {url: require('../images/team/3.jpg'), title: '10月16日罗浮山休闲伴侣', date: '2016.10.15 共0天'},
-    {url: require('../images/team/4.jpg'), title: '梧桐山山村-二线关石板线路', date: '2016.10.15 共0天'},
-    {url: require('../images/team/5.jpg'), title: '10月16日梧桐山打火锅1天休闲户外', date: '2016.10.15 共0天'},
+    {id: 1, url: require('../images/team/1.jpg'), title: '2016年10月15日至21日稻城亚丁自驾游', date: '2016.10.15 共0天'},
+    {id: 2, url: require('../images/team/2.jpg'), title: '[清洁山野]白云章环线（2016年10月16日）', date: '2016.10.15 共0天'},
+    {id: 3, url: require('../images/team/3.jpg'), title: '10月16日罗浮山休闲伴侣', date: '2016.10.15 共0天'},
+    {id: 4, url: require('../images/team/4.jpg'), title: '梧桐山山村-二线关石板线路', date: '2016.10.15 共0天'},
+    {id: 5, url: require('../images/team/5.jpg'), title: '10月16日梧桐山打火锅1天休闲户外', date: '2016.10.15 共0天'},
+    {id: 6, url: require('../images/team/1.jpg'), title: '2016年10月15日至21日稻城亚丁自驾游', date: '2016.10.15 共0天'},
+    {id: 7, url: require('../images/team/2.jpg'), title: '[清洁山野]白云章环线（2016年10月16日）', date: '2016.10.15 共0天'},
+    {id: 8, url: require('../images/team/3.jpg'), title: '10月16日罗浮山休闲伴侣', date: '2016.10.15 共0天'},
+    {id: 9, url: require('../images/team/4.jpg'), title: '梧桐山山村-二线关石板线路', date: '2016.10.15 共0天'},
+    {id: 10, url: require('../images/team/5.jpg'), title: '10月16日梧桐山打火锅1天休闲户外', date: '2016.10.15 共0天'},
 ];
 
 export const teamCondition = {

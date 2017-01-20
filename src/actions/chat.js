@@ -1,20 +1,41 @@
 'use strict'
 
-import * as CHAT_ACTIONS from '../constants/chat';
+import * as ChatActions from '../constants/chat';
 
-export function refresh_chat(){
+export function refresh_chat() {
     return (dispatch) => {
-        dispatch({'type': CHAT_ACTIONS.CHAT_LIST_DOING});
+        dispatch({'type': ChatActions.REFRESH_CHAT_DOING});
+
+        let inner_get = fetch('https://www.baidu.com')
+            .then((res) => {
+                dispatch({'type': ChatActions.REFRESH_CHAT_SUC})
+            })
+            .catch((e) => {
+                alert(e.message);
+                dispatch({'type': ChatActions.REFRESH_CHAT_ERROR, error: e});
+            });
+
+    }
+}
+
+export function load_chat() {
+    return (dispatch) => {
+        dispatch({'type': ChatActions.LOAD_CHAT_DOING});
 
         setTimeout(()=>{
             let inner_get = fetch('https://www.baidu.com')
-                .then((res)=>{
-                    dispatch({'type': CHAT_ACTIONS.CHAT_LIST_SUC, user: {}})
+                .then((res) => {
+                    dispatch({'type': ChatActions.LOAD_CHAT_SUC})
                 })
-                .catch((e)=>{
+                .catch((e) => {
                     alert(e.message);
-                    dispatch({'type': CHAT_ACTIONS.CHAT_LIST_ERROR, error: e});
+                    dispatch({'type': ChatActions.LOAD_CHAT_ERROR, error: e});
                 });
-        }, 2000)
+        }, 2000);
+
     }
+}
+
+export function filter_chat(text) {
+    return {'type': ChatActions.FILTER_CHAT, text: text};
 }

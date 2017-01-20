@@ -74,16 +74,19 @@ export default class ChatPage extends Component {
                         multiline={false}
                         maxLength={20}
                         style={styles.searchViewIpt}
+                        onChangeText = { this.props.filter_chat.bind(this) }
                         />
                 </View>
-                <View style={styles.chatListView}>
+                <View style={styles.chatListView}  >
 
                     <CustomListView
-                        onRefresh={this.props.refresh_chat}
                         rows={this.props.chat.chats}
-                        firstLoad={true}
-                        isRefreshing={this.props.chat.is_fetching}
                         renderRow={this._renderRow}
+                        firstLoad={true}
+                        isRefreshing={this.props.chat.is_refreshing}
+                        onRefresh={this.props.refresh_chat}
+                        isLoading={this.props.chat.is_loading}
+                        onLoad={this.props.load_chat}
                     />
                 </View>
             </View>

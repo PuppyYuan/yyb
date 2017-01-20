@@ -1,9 +1,14 @@
 'use strict'
 
-export const TEAM_LIST_DOING = 'TEAM_LIST_DOING';
-export const TEAM_LIST_SUC = 'LINT_LIST_SUC';
-export const TEAM_LIST_FAIL = 'TEAM_LIST_FAIL';
-export const TEAM_LIST_ERROR = 'TEAM_LIST_ERROR';
+export const REFRESH_TEAM_DOING = 'REFRESH_TEAM_DOING';
+export const REFRESH_TEAM_SUC = 'REFRESH_TEAM_SUC';
+export const REFRESH_TEAM_FAIL = 'REFRESH_TEAM_FAIL';
+export const REFRESH_TEAM_ERROR = 'REFRESH_TEAM_ERROR';
+
+export const LOAD_TEAM_DOING = 'LOAD_TEAM_DOING';
+export const LOAD_TEAM_SUC = 'LOAD_TEAM_SUC';
+export const LOAD_TEAM_FAIL = 'LOAD_TEAM_FAIL';
+export const LOAD_TEAM_ERROR = 'LOAD_TEAM_ERROR';
 
 export const TEAM_DETAIL_DOING = 'TEAM_DETAIL_DOING';
 export const TEAM_DETAIL_SUC = 'TEAM_DETAIL_SUC';

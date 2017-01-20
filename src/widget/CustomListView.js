@@ -9,7 +9,8 @@ import {
     RefreshControl,
     StyleSheet,
     Dimensions,
-    Image
+    Image,
+    InteractionManager
 } from 'react-native';
 
 import CustomSpinner from '../widget/CustomSpinner';
@@ -34,7 +35,9 @@ export default class CustomListView extends Component {
 
     componentWillReceiveProps(nextProps) {
 
-        if ((this.props.isLoading && this.props.isLoading !== nextProps.isLoading) || (this.props.isRefreshing && this.props.isRefreshing !== nextProps.isRefreshing)) {
+        if ((this.props.isLoading && this.props.isLoading !== nextProps.isLoading)
+            || (this.props.isRefreshing && this.props.isRefreshing !== nextProps.isRefreshing)
+            || this.props.rows !== nextProps.rows) {
 
             if (nextProps.rows.length == 0) {
                 this.setState({
@@ -67,15 +70,19 @@ export default class CustomListView extends Component {
         )
     }
 
-    onEndReached(e) {
+    onLoad(scrollView) {
+        let contentSizeH = scrollView.nativeEvent.contentSize.height;
+        let offsetY = scrollView.nativeEvent.contentOffset.y;
+        let svHeight = scrollView.nativeEvent.layoutMeasurement.height;
 
-        if (!this.props.isRefreshing && !this.props.isLoading) {
-            this.props.onLoad();
+        if (offsetY > 0 && contentSizeH > svHeight && offsetY + svHeight > contentSizeH - 100) {
+            if (!this.props.isRefreshing && !this.props.isLoading) {
+                this.props.onLoad();
+            }
         }
     }
 
     _renderFooter() {
-
         return (
             <View style={styles.footer}>
                 {this.props.isLoading ? <CustomSpinner tips="加载中"/> : null }
@@ -106,8 +113,8 @@ export default class CustomListView extends Component {
                 renderRow={this.props.renderRow}
                 refreshControl={this.refreshControl()}
                 enableEmptySections={true}
-                onEndReached={this.onEndReached.bind(this)}
-                onEndReachedThreshold={100}
+
+                onScroll={this.onLoad.bind(this)}
                 renderFooter={this._renderFooter.bind(this)}
             />
         );
@@ -115,10 +122,10 @@ export default class CustomListView extends Component {
 }
 
 CustomListView.propTypes = {
+    firstLoad: React.PropTypes.bool,
     rows: React.PropTypes.array,
     renderRow: React.PropTypes.func,
     onRefresh: React.PropTypes.func,
-    firstLoad: React.PropTypes.bool,
     isRefreshing: React.PropTypes.bool,
     isLoading: React.PropTypes.bool,
     onLoad: React.PropTypes.func,

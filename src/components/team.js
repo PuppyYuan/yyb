@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 // 线路召集
 
 import React, {Component} from 'react';
@@ -9,21 +9,21 @@ import {
 import ViewPager from 'react-native-viewpager';
 import CustomPicker from '../widget/CustomPicker';
 
+import CustomListView from '../widget/CustomListView';
+
 import styles from '../styles/team';
 
-import { teamAd, teamList, teamCondition } from '../assets/team';
+import {teamAd, teamCondition} from '../assets/team';
 
-export default class Team extends Component {
+export default class TeamPage extends Component {
 
     constructor(props) {
         super(props);
 
         const dsPager = new ViewPager.DataSource({pageHasChanged: (p1, p2) => p1 !== p2});
-        const dsList = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
         this.state = {
             dataSourcePager: dsPager.cloneWithPages(teamAd),
-            dataSourceList: dsList.cloneWithRows(teamList),
             pickerItems: teamCondition
         }
 
@@ -37,7 +37,7 @@ export default class Team extends Component {
         );
     }
 
-    _renderRow = (rowData, sectionID, rowID) => {
+    _renderRow (rowData, sectionID, rowID) {
         return (
             <TouchableOpacity>
                 <View style={styles.teamListItem}>
@@ -64,13 +64,8 @@ export default class Team extends Component {
         )
     }
 
-    componentDidMount() {
-    }
-
     render() {
-
         return (
-
             <View style={styles.container}>
                 <View style={styles.viewpager}>
                     <ViewPager
@@ -90,11 +85,17 @@ export default class Team extends Component {
                         style={styles.teamConditionItem}/>
                 </View>
 
-                <ListView style={styles.teamList}
-                          dataSource={this.state.dataSourceList}
-                          renderRow={this._renderRow}
-                />
-
+                <View style={styles.teamList}>
+                    <CustomListView
+                        rows={this.props.team.teams}
+                        renderRow={this._renderRow}
+                        firstLoad={true}
+                        isRefreshing={this.props.team.is_refreshing}
+                        onRefresh={this.props.refresh_team}
+                        isLoading={this.props.team.is_loading}
+                        onLoad={this.props.load_team}
+                    />
+                </View>
             </View>
         )
     }

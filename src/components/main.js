@@ -10,12 +10,12 @@ import mainStyles from '../styles/main';
 import { mainTab } from '../assets/main';
 
 import Home from './home';
-import Team from '../components/team';
+import Team from '../containers/team';
 import Line from '../containers/line';
-import LineDetail from '../components/lineDetail';
 import Chat from '../containers/chat';
-import Mine from '../components/mine';
+import Mine from '../containers/mine';
 
+import LineDetail from '../components/lineDetail';
 import ChatDetail from '../components/chatDetail';
 import ChatContent from '../components/chatContent';
 
@@ -31,7 +31,7 @@ export default class MainPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: mainTab[1].key,
+            selectedTab: mainTab[4].key,
         }
     }
 

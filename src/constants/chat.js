@@ -1,6 +1,13 @@
 'use strict'
 
-export const CHAT_LIST_DOING = 'LINE_LIST_DOING';
-export const CHAT_LIST_SUC = 'LINT_LIST_SUC';
-export const CHAT_LIST_FAIL = 'LINE_LIST_FAIL';
-export const CHAT_LIST_ERROR = 'LINE_LIST_ERROR';
+export const REFRESH_CHAT_DOING = 'REFRESH_CHAT_DOING';
+export const REFRESH_CHAT_SUC = 'REFRESH_CHAT_SUC';
+export const REFRESH_CHAT_FAIL = 'REFRESH_CHAT_FAIL';
+export const REFRESH_CHAT_ERROR = 'REFRESH_CHAT_ERROR';
+
+export const LOAD_CHAT_DOING = 'LOAD_CHAT_DOING';
+export const LOAD_CHAT_SUC = 'LOAD_CHAT_SUC';
+export const LOAD_CHAT_FAIL = 'LOAD_CHAT_FAIL';
+export const LOAD_CHAT_ERROR = 'LOAD_CHAT_ERROR';
+
+export const FILTER_CHAT = 'FILTER_CHAT';

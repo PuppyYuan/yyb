@@ -61,13 +61,13 @@ export default class Line extends Component {
                 </View>
 
                 <CustomListView
-                    onRefresh={this.props.refresh_line}
                     rows={this.props.line.lines}
+                    renderRow={this._renderRow}
                     firstLoad={true}
                     isRefreshing={this.props.line.is_refreshing}
+                    onRefresh={this.props.refresh_line}
                     isLoading={this.props.line.is_loading}
                     onLoad={this.props.load_line}
-                    renderRow={this._renderRow}
                 />
 
             </View>

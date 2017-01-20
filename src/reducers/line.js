@@ -3,7 +3,7 @@
 import React from 'react';
 import * as LineActions from '../constants/line';
 
-import { lineData } from '../assets/line';
+import {lineData} from '../assets/line';
 
 const initialState = {
     lines: [],
@@ -13,7 +13,7 @@ const initialState = {
     load_status: null,
 };
 
-export default function line(state= initialState, action) {
+export default function line(state = initialState, action) {
 
     switch (action.type) {
         case LineActions.REFRESH_LINE_DOING:
@@ -37,7 +37,12 @@ export default function line(state= initialState, action) {
             return Object.assign({}, state, {load_status: 'doing', is_loading: true});
 
         case LineActions.LOAD_LINE_SUC:
-            let data = state.lines.concat([{id: 6, url: require('../images/line/1.jpg'), title: '广西桂林', desc: '#旅游'}], [{id: 7, url: require('../images/line/1.jpg'), title: '广西桂林', desc: '#旅游'}]);
+            let data = state.lines.concat([{
+                id: 6,
+                url: require('../images/line/1.jpg'),
+                title: '广西桂林',
+                desc: '#旅游'
+            }], [{id: 7, url: require('../images/line/1.jpg'), title: '广西桂林', desc: '#旅游'}]);
 
             return {
                 ...state,

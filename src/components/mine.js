@@ -1,10 +1,10 @@
 'use strict'
 // 个人中心
 
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput} from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput} from 'react-native';
 
-import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 
 import styles from '../styles/mine';
 
@@ -12,13 +12,18 @@ import MineActivity from './mineActivity';
 import MineInterest from './mineInterest';
 import MineFocus from './mineFocus';
 
-export default class Mine extends Component {
-    render () {
+export default class MinePage extends Component {
+
+    constructor(props){
+        super(props);
+    }
+
+    render() {
         return (
             <View style={styles.container}>
                 <View style={styles.mineHeader}>
                     <View style={styles.mineHeaderLeft}>
-                        <Image source={require('../images/photo.jpg')}  style={styles.mineHeaderLeftImg}/>
+                        <Image source={require('../images/photo.jpg')} style={styles.mineHeaderLeftImg}/>
                     </View>
                     <View style={styles.mineHeaderMid}>
                         <View style={styles.mineHeaderMidTop}>
@@ -50,10 +55,10 @@ export default class Mine extends Component {
                         tabBarBackgroundColor={'#f6f6f6'}
                         renderTabBar={() =>
                             <DefaultTabBar style={{height: 40}} tabStyle={{paddingBottom: 0}} />}
-                        >
-                        
-                        <MineActivity tabLabel="活动" />
-                        <MineInterest tabLabel="收藏" />
+                    >
+
+                        <MineActivity tabLabel="活动"/>
+                        <MineInterest tabLabel="收藏"/>
                         <MineFocus tabLabel="关注"/>
                     </ScrollableTabView>
                 </View>
