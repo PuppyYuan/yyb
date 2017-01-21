@@ -3,10 +3,12 @@
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
+import * as UserActions from '../actions/user';
+
 import MinePage from '../components/mine';
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return bindActionCreators(UserActions, dispatch);
 
 };
 

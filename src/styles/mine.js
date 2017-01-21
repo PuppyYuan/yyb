@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     mineHeaderRightTop: {
         flex: 1,
-        alignItems: 'flex-end'
+        alignItems: 'flex-end',
     },
     mineHeaderRightTopImg: {
         width: 20,
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     mineHeaderRightBot: {
         flex: 1,
-        justifyContent: 'flex-start'
+        justifyContent: 'center',
     },
     mineHeaderRightBotBtn: {
         color: '#ededed',

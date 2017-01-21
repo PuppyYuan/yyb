@@ -31,7 +31,7 @@ export default class MainPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedTab: mainTab[4].key,
+            selectedTab: mainTab[0].key,
         }
     }
 

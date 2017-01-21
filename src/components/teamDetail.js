@@ -1,7 +1,7 @@
 'use strict'
 
-import React, { Component } from 'react';
-import { View, Text, TextInput, ListView, TouchableOpacity, Image } from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, TextInput, ListView, TouchableOpacity, Image} from 'react-native';
 
 import CustomSwitch from '../widget/CustomSwitch';
 
@@ -26,6 +26,11 @@ export default class CommentReply extends Component {
         }
     }
 
+    goBack() {
+        const {router} = this.props;
+        router.pop();
+    }
+
     _renderRow = (rowData, sectionID, rowID) => {
         return (
             <TouchableOpacity>
@@ -35,7 +40,7 @@ export default class CommentReply extends Component {
                     </View>
                     <View style={styles.teamDetailListItemMid}>
                         <View style={styles.teamDetailListItemMidTop}>
-                            <Text  style={styles.teamDetailListItemMidTopTxt}>{rowData.title}</Text>
+                            <Text style={styles.teamDetailListItemMidTopTxt}>{rowData.title}</Text>
                         </View>
                         <View style={styles.teamDetailListItemMidBot}>
                             <Text style={styles.teamDetailListItemMidBotTxt}>{rowData.desc}</Text>
@@ -50,20 +55,19 @@ export default class CommentReply extends Component {
         )
     }
 
-    render () {
+    render() {
         return (
-            <View style={styles.container} >
+            <View style={styles.container}>
 
                 <View style={navStyles.navi}>
-                    <TouchableOpacity style={navStyles.navi_left} >
+                    <TouchableOpacity style={navStyles.navi_left} onPress={this.goBack.bind(this)}>
                         <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
-                    <View style={navStyles.navi_mid} >
-                        <CustomSwitch activeText="已确认" inActiveText="未确认" value={true} onValueChange={value=>alert(value)}/>
+                    <View style={navStyles.navi_mid}>
+                        <CustomSwitch activeText="已确认" inActiveText="未确认" value={true}
+                                      onValueChange={value=>alert(value)}/>
                     </View>
-                    <View style={navStyles.navi_right} >
-                        <Text style={navStyles.navi_btn_txt}>返回</Text>
-                    </View>
+                    <View style={navStyles.navi_right}/>
                 </View>
 
                 <View style={styles.teamDetailListView}>

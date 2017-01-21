@@ -1,10 +1,8 @@
 'use strict';
 
-import {StyleSheet, Dimensions, Platform } from 'react-native';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
 
-let window = Dimensions.get('window');
-let width = window.width;
-let height = window.height;
+const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     navi: {
@@ -31,6 +29,7 @@ const styles = StyleSheet.create({
     },
     navi_left: {
         flex: 3,
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -43,6 +42,11 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
     },
+    navi_btn_img: {
+        width: 12,
+        height: 15,
+        marginRight: 4,
+    }
 });
 
 module.exports = styles;

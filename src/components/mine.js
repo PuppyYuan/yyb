@@ -2,7 +2,7 @@
 // 个人中心
 
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, Dimensions, TouchableHighlight, TextInput} from 'react-native';
+import {StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput} from 'react-native';
 
 import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
 
@@ -14,8 +14,23 @@ import MineFocus from './mineFocus';
 
 export default class MinePage extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+
+        if (nextProps.user.is_logged_in != this.props.user.is_logged_in && !nextProps.user.is_logged_in) {
+            this.logout();
+            return false;
+        }
+
+        return true;
+    }
+
+    logout() {
+        const {router} = this.props;
+        router.resetToLogin();
     }
 
     render() {
@@ -38,7 +53,9 @@ export default class MinePage extends Component {
                     </View>
                     <View style={styles.mineHeaderRight}>
                         <View style={styles.mineHeaderRightTop}>
-                            <Image source={require('../images/setting.png')} style={styles.mineHeaderRightTopImg}/>
+                            <TouchableOpacity onPress={this.props.logout.bind(this)}>
+                                <Image source={require('../images/setting.png')} style={styles.mineHeaderRightTopImg}/>
+                            </TouchableOpacity>
                         </View>
                         <View style={styles.mineHeaderRightMid}></View>
                         <View style={styles.mineHeaderRightBot}>

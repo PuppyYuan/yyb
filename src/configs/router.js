@@ -7,6 +7,7 @@ import Main from '../containers/main';
 import Register from '../containers/register';
 import LineDetail from '../components/lineDetail';
 import ChatDetail from '../components/chatDetail';
+import TeamDetail from '../components/teamDetail';
 
 import RegistProtocol from '../components/registProtocol';
 
@@ -109,6 +110,14 @@ class Router {
         this.push(props, {
             component: ChatDetail,
             name: 'chatDetail',
+            sceneConfig: customFloatFromRight,
+        })
+    }
+
+    toTeamDetail(props){
+        this.push(props, {
+            component: TeamDetail,
+            name: 'teamDetail',
             sceneConfig: customFloatFromRight,
         })
     }

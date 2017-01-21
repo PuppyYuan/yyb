@@ -37,9 +37,14 @@ export default class TeamPage extends Component {
         );
     }
 
-    _renderRow (rowData, sectionID, rowID) {
+    toTeamDetail(id) {
+        const {router} = this.props;
+        router.toTeamDetail({team_id: id});
+    }
+
+    _renderRow = (rowData, sectionID, rowID) => {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.toTeamDetail.bind(this, rowData.id)}>
                 <View style={styles.teamListItem}>
                     <View style={styles.teamListItemLeft}>
                         <Image source={rowData.url} style={styles.teamListItemLeftImg}/>
