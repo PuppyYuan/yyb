@@ -53,6 +53,12 @@ export default class CustomSwitch extends Component {
         }
     }
 
+    componentWillReceiveProps(props) {
+        if(this.props.value !== props.value){
+            this.animateSwitch(props.value);
+        }
+    }
+
     handleSwitch() {
         const { value } = this.state;
         const { onValueChange } = this.props;

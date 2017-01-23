@@ -125,6 +125,9 @@ const styles = StyleSheet.create({
     },
     teamDetailList: {
         flex: 1,
+        width: width,
+        borderWidth: 1,
+        borderColor: '#ededed'
     },
     teamDetailListItem: {
         flex: 1,

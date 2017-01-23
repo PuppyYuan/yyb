@@ -5,7 +5,6 @@ import * as LocationActions from '../constants/location';
 export function load_location() {
     navigator.geolocation.getCurrentPosition(
         (position) => {
-            console.dir(position)
             // var initialPosition = JSON.stringify(position);
             // this.setState({initialPosition});
         },

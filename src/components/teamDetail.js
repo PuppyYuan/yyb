@@ -1,14 +1,20 @@
 'use strict'
 
 import React, {Component} from 'react';
-import {View, Text, TextInput, ListView, TouchableOpacity, Image} from 'react-native';
+import {View, Text, TextInput, ListView, TouchableOpacity, Image, ScrollView, Dimensions} from 'react-native';
 
 import CustomSwitch from '../widget/CustomSwitch';
 
 import navStyles from '../styles/nav';
 import styles from '../styles/team';
 
-var CHATS = [
+const CHATS = [
+    {url: require('../images/team/1.jpg'), title: '中午的风', desc: '发起人', date: '2016/12/17'},
+    {url: require('../images/team/2.jpg'), title: '天飘', desc: '成员', date: '2016/12/17'},
+    {url: require('../images/team/3.jpg'), title: '中午的风', desc: '成员', date: '2016/12/17'},
+    {url: require('../images/team/1.jpg'), title: '中午的风', desc: '发起人', date: '2016/12/17'},
+    {url: require('../images/team/2.jpg'), title: '天飘', desc: '成员', date: '2016/12/17'},
+    {url: require('../images/team/3.jpg'), title: '中午的风', desc: '成员', date: '2016/12/17'},
     {url: require('../images/team/1.jpg'), title: '中午的风', desc: '发起人', date: '2016/12/17'},
     {url: require('../images/team/2.jpg'), title: '天飘', desc: '成员', date: '2016/12/17'},
     {url: require('../images/team/3.jpg'), title: '中午的风', desc: '成员', date: '2016/12/17'},
@@ -22,6 +28,7 @@ export default class CommentReply extends Component {
         const dsList = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
         this.state = {
+            switchValue: true,
             dataSourceList: dsList.cloneWithRows(CHATS)
         }
     }
@@ -55,6 +62,22 @@ export default class CommentReply extends Component {
         )
     }
 
+    changeTab(value) {
+        let x = value ? 0 : Dimensions.get('window').width;
+        this.scrollView.scrollTo({x});
+    }
+
+    changeScrollView(e) {
+        let offsetX = e.nativeEvent.contentOffset.x;
+        let width = Dimensions.get('window').width;
+
+        if (offsetX % width === 0) {
+            this.setState({
+                switchValue: offsetX / width === 0
+            });
+        }
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -64,21 +87,52 @@ export default class CommentReply extends Component {
                         <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
                     <View style={navStyles.navi_mid}>
-                        <CustomSwitch activeText="已确认" inActiveText="未确认" value={true}
-                                      onValueChange={value=>alert(value)}/>
+                        <CustomSwitch activeText="已确认"
+                                      inActiveText="未确认"
+                                      value={this.state.switchValue}
+                                      onValueChange={this.changeTab.bind(this)}/>
                     </View>
                     <View style={navStyles.navi_right}/>
                 </View>
 
-                <View style={styles.teamDetailListView}>
-                    <View style={styles.teamDetailListDesc}>
-                        <Text style={styles.teamDetailListDescTxt}>10人已确认</Text>
+                <ScrollView
+                    horizontal
+                    pagingEnabled
+                    ref={(scrollView) => { this.scrollView = scrollView; }}
+                    automaticallyAdjustContentInsets={false}
+                    showsHorizontalScrollIndicator={false}
+                    keyboardDismissMode="on-drag"
+                    style={[styles.teamDetailListView]}
+                    scrollEventThrottle={16}
+                    scrollsToTop={false}
+                    onScroll={this.changeScrollView.bind(this)}
+                >
+
+                    <View style={styles.teamDetailList}>
+                        <View style={styles.teamDetailListDesc}>
+                            <Text style={styles.teamDetailListDescTxt}>10人已确认</Text>
+                        </View>
+                        <View style={styles.teamDetailList}>
+                            <ListView
+                                dataSource={this.state.dataSourceList}
+                                renderRow={this._renderRow}
+                            />
+                        </View>
                     </View>
-                    <ListView style={styles.teamDetailList}
-                              dataSource={this.state.dataSourceList}
-                              renderRow={this._renderRow}
-                    />
-                </View>
+                    <View style={styles.teamDetailList}>
+                        <View style={styles.teamDetailListDesc}>
+                            <Text style={styles.teamDetailListDescTxt}>10人未确认</Text>
+                        </View>
+                        <View style={styles.teamDetailList}>
+                            <ListView
+                                dataSource={this.state.dataSourceList}
+                                renderRow={this._renderRow}
+                            />
+                        </View>
+                    </View>
+
+                </ScrollView>
+
             </View>
         );
     }

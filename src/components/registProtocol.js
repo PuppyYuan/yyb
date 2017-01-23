@@ -25,7 +25,7 @@ export default class RegistProtocol extends Component {
                         <Text style={navStyles.navi_btn_txt}>返回</Text>
                     </TouchableOpacity>
                     <View style={navStyles.navi_mid} >
-                        <Text style={navStyles.navi_mid_txt}>注册</Text>
+                        <Text style={navStyles.navi_mid_txt}>注册协议</Text>
                     </View>
                     <View style={navStyles.navi_right} />
                 </View>

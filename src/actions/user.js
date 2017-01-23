@@ -1,39 +1,55 @@
-'use strict'
-  
-import * as USER_ACTIONS from '../constants/user'
+'use strict';
+
+import * as UserActions from '../constants/user';
 
 export function login(user) {
     return (dispatch) => {
-        dispatch({'type': USER_ACTIONS.LOGGED_DOING});
+        dispatch({'type': UserActions.LOGGED_DOING});
         let inner_get = fetch('https://www.baidu.com')
-            .then((res)=>{
-                dispatch({'type': USER_ACTIONS.LOGGED_IN, user: {}})
+            .then((res) => {
+                dispatch({'type': UserActions.LOGGED_IN, user: {}})
             })
-            .catch((e)=>{
+            .catch((e) => {
                 alert(e.message);
-                dispatch({'type': USER_ACTIONS.LOGGED_ERROR, error: e});
+                dispatch({'type': UserActions.LOGGED_ERROR, error: e});
             });
     }
 }
 
-export function logout(){
-    return {'type': USER_ACTIONS.LOGGED_OUT}
+export function logout() {
+    return {'type': UserActions.LOGGED_OUT}
 }
 
-export function regist(user){
+export function regist(user) {
     return (dispatch) => {
-        dispatch({'type': USER_ACTIONS.REGIST_DOING});
+        dispatch({'type': UserActions.REGIST_DOING});
 
-        setTimeout(()=>{
-        let inner_get = fetch('https://www.baidu.com')
-            .then((res)=>{
-                dispatch({'type': USER_ACTIONS.REGIST_SUC});
+        // let url = "http://192.168.4.8/client/test";
+        let url = "https://www.baidu.com";
+        let formData = new FormData();
+        let file = {uri: user.avatar.uri, type: 'multipart/form-data', name: user.avatar.fileName};
+
+        formData.append("username", user.username);
+        formData.append("password", user.password);
+        formData.append("avatar", file);
+
+        fetch(url,
+            {
+                // method: 'POST',
+                // headers: {
+                //     'Content-Type': 'multipart/form-data',
+                // },
+                // body: formData,
             })
-            .catch((e)=>{
-                alert(e.message);
-                dispatch({'type': USER_ACTIONS.REGIST_ERROR, error: e});
+            .then((response) => response.text())
+            .then((responseData) => {
+                console.log('responseData', responseData);
+                dispatch({'type': UserActions.REGIST_SUC});
+            })
+            .catch((error) => {
+                console.error('error', error)
+                dispatch({'type': UserActions.REGIST_ERROR, error: e});
             });
-        }, 3000);
     }
 
 }

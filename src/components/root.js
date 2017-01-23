@@ -9,6 +9,8 @@ import Router from '../configs/router';
 import Login from '../containers/login';
 import Main from '../containers/main';
 
+import TeamDetail from '../components/teamDetail';
+
 import * as LocationActions from '../actions/location';
 
 import Test from '../components/test';
@@ -52,7 +54,16 @@ class Root extends Component {
     }
 
     componentDidMount() {
+        // this.chat_timer = setInterval(()=>{
+        //     console.log("I am going to load chat from server")
+        // }, 2000);
+
         this.props.load_location();
+    }
+
+    // 清除加载聊天记录的定时器任务
+    componentWillUnMount(){
+        this.chat_timer && clearInterval(this.chat_timer);
     }
 }
 

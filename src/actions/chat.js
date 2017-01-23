@@ -32,10 +32,14 @@ export function load_chat() {
                     dispatch({'type': ChatActions.LOAD_CHAT_ERROR, error: e});
                 });
         }, 2000);
-
     }
 }
 
 export function filter_chat(text) {
     return {'type': ChatActions.FILTER_CHAT, text: text};
 }
+
+export function send_msg(msg){
+    return {'type': ''};
+}
+
