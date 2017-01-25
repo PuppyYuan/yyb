@@ -25,6 +25,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8A25AD7A43584218AD858577 /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47F3B87F8A2F4B00AC474AFA /* libRNSpinkit.a */; };
 		956E68A6076146C4BE7C5390 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4AFA840D4A4817A88D0D99 /* libRNImagePicker.a */; };
+		977C470D1E38481600BD517F /* TestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 977C470C1E38481600BD517F /* TestManager.m */; };
 		97F61B401DFEF43D004BAB7B /* libRCTBaiduMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F61B2E1DFEF3D8004BAB7B /* libRCTBaiduMap.a */; };
 		97F61B491DFF8B11004BAB7B /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F61B421DFF8B11004BAB7B /* BaiduMapAPI_Base.framework */; };
 		97F61B4A1DFF8B11004BAB7B /* BaiduMapAPI_Cloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F61B431DFF8B11004BAB7B /* BaiduMapAPI_Cloud.framework */; };
@@ -219,6 +220,8 @@
 		4C4AFA840D4A4817A88D0D99 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		977C470B1E38476400BD517F /* TestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestManager.h; sourceTree = "<group>"; };
+		977C470C1E38481600BD517F /* TestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestManager.m; sourceTree = "<group>"; };
 		97F61B281DFEF3D8004BAB7B /* RCTBaiduMap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBaiduMap.xcodeproj; path = "../node_modules/react-native-baidu-map/ios/RCTBaiduMap.xcodeproj"; sourceTree = "<group>"; };
 		97F61B421DFF8B11004BAB7B /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Base.framework; path = "../node_modules/react-native-baidu-map/ios/lib/BaiduMapAPI_Base.framework"; sourceTree = "<group>"; };
 		97F61B431DFF8B11004BAB7B /* BaiduMapAPI_Cloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BaiduMapAPI_Cloud.framework; path = "../node_modules/react-native-baidu-map/ios/lib/BaiduMapAPI_Cloud.framework"; sourceTree = "<group>"; };
@@ -376,6 +379,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				977C470B1E38476400BD517F /* TestManager.h */,
+				977C470C1E38481600BD517F /* TestManager.m */,
 			);
 			name = yyb;
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977C470D1E38481600BD517F /* TestManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);

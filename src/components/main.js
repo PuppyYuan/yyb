@@ -25,7 +25,7 @@ import CommentPublish from '../components/commentPublish';
 import CommentReply from '../components/commentReply';
 import TeamDetail from '../components/teamDetail';
 
-import Test from '../components/test';
+// import Test from '../components/test';
 
 export default class MainPage extends Component {
     constructor(props){
