@@ -9,11 +9,10 @@ import Router from '../configs/router';
 import Login from '../containers/login';
 import Main from '../containers/main';
 
-import TeamDetail from '../components/teamDetail';
-
 import * as LocationActions from '../actions/location';
 
 import Test from '../components/test';
+import BaiduMap from '../components/baiduMap';
 
 class Root extends Component {
     constructor(props) {
@@ -30,7 +29,7 @@ class Root extends Component {
 
     initialRoute = () => {
         if (!this.props.user.is_logged_in) {
-            return {name: 'login', component: Login, index: 0}
+            return {name: 'login', component: BaiduMap, index: 0}
         }
         return {name: 'main', component: Main, index: 0}
     };

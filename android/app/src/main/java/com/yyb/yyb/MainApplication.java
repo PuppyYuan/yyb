@@ -11,7 +11,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
 import com.react.rnspinkit.RNSpinkitPackage;
-import org.lovebing.reactnative.baidumap.BaiduMapPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
                     new MainReactPackage(),
                     new ImagePickerPackage(),
                     new RNSpinkitPackage(),
-                    new BaiduMapPackage(getApplicationContext()),
-                    new TestPackage()
+                    new BaiduMapPackage(getApplicationContext())
             );
         }
     };

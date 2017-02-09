@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import React, { Component } from 'react';
 import { Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
@@ -112,8 +112,10 @@ export default class LoginPage extends Component {
                         />
                 </View>
 
-                <TouchableOpacity style={styles.login_btn} onPress= { this.handleLogin.bind(this) }>
-                    <Text style={styles.login_btn_text}>登&nbsp;&nbsp;&nbsp;录</Text>
+                <TouchableOpacity onPress= { this.handleLogin.bind(this) }>
+                    <View style={styles.login_btn}>
+                        <Text style={styles.login_btn_text}>登&nbsp;&nbsp;&nbsp;录</Text>
+                    </View>
                 </TouchableOpacity>
 
                 <View style={styles.login_bottom}>
